@@ -7885,7 +7885,7 @@
     </div>
 
     <!-- Right-aligned 4x2 Inputs in 2-Column Floating Grid -->
-    <form class="floating-form-grid" onsubmit="event.preventDefault(); alert('Thank you! Our team will get in touch with you shortly.'); document.getElementById('floatingQuoteBox').classList.remove('active'); document.getElementById('floatingQuoteTrigger').style.display='flex';">
+    <form id="floatingQuoteForm" class="floating-form-grid">
       
       <!-- Field 1: Your Name -->
       <div class="cta-input-group">
@@ -7895,7 +7895,7 @@
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </span>
-        <input type="text" class="cta-input" placeholder="Your Name" required>
+        <input type="text" id="quoteName" class="cta-input" placeholder="Your Name" required>
       </div>
 
       <!-- Field 2: Business / Brand Name -->
@@ -7906,7 +7906,7 @@
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
         </span>
-        <input type="text" class="cta-input" placeholder="Business / Brand Name" required>
+        <input type="text" id="quoteBrand" class="cta-input" placeholder="Business / Brand Name" required>
       </div>
 
       <!-- Field 3: Phone Number -->
@@ -7916,7 +7916,7 @@
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
         </span>
-        <input type="tel" class="cta-input" placeholder="Phone Number" required>
+        <input type="tel" id="quotePhone" class="cta-input" placeholder="Phone Number" required>
       </div>
 
       <!-- Field 4: Email Address -->
@@ -7927,12 +7927,12 @@
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
         </span>
-        <input type="email" class="cta-input" placeholder="Email Address" required>
+        <input type="email" id="quoteEmail" class="cta-input" placeholder="Email Address" required>
       </div>
 
       <!-- Field 5: Type of Website -->
       <div class="cta-select-group">
-        <select class="cta-select" required>
+        <select id="quoteWebsiteType" class="cta-select" required>
           <option value="" disabled selected>Type of Website</option>
           <option value="business">Business Website</option>
           <option value="ecommerce">E-commerce Store</option>
@@ -7949,7 +7949,7 @@
 
       <!-- Field 6: Preferred Platform -->
       <div class="cta-select-group">
-        <select class="cta-select" required>
+        <select id="quotePlatform" class="cta-select" required>
           <option value="" disabled selected>Preferred Platform</option>
           <option value="shopify">Shopify</option>
           <option value="wordpress">WordPress</option>
@@ -7966,7 +7966,7 @@
 
       <!-- Field 7: Estimated Budget -->
       <div class="cta-select-group">
-        <select class="cta-select" required>
+        <select id="quoteBudget" class="cta-select" required>
           <option value="" disabled selected>Estimated Budget</option>
           <option value="500-1500">$500 – $1,500</option>
           <option value="1500-3000">$1,500 – $3,000</option>
@@ -7982,7 +7982,7 @@
 
       <!-- Field 8: Get a Quote Button -->
       <button type="submit" class="btn-get-quote">
-        <span>Get a Quote</span>
+        <span>Get a Quote via WhatsApp</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -8023,11 +8023,19 @@
     });
 
     // -------------------------------------------
-    // 2. FLOATING QUOTE WIDGET (Trigger & Box)
+    // 2. FLOATING QUOTE WIDGET & WHATSAPP INTEGRATION
     // -------------------------------------------
     const quoteTrigger = document.getElementById('floatingQuoteTrigger');
     const quoteBox = document.getElementById('floatingQuoteBox');
     const quoteClose = document.getElementById('floatingQuoteClose');
+    const quoteForm = document.getElementById('floatingQuoteForm');
+
+    // =========================================================================
+    // ⚠️ WHATSAPP PHONE NUMBER SETTING
+    // Apne WhatsApp number ko yaha dalein: Country Code ke sath, bina '+' ya space ke
+    // Example (India): 919660212939
+    // =========================================================================
+    const WHITEINK_WHATSAPP_NUMBER = "919660212939";
 
     if (quoteTrigger && quoteBox && quoteClose) {
       // Open form when trigger button is clicked
@@ -8053,6 +8061,63 @@
       // Close on Esc key press
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && quoteBox.classList.contains('active')) {
+          quoteBox.classList.remove('active');
+          quoteTrigger.style.display = 'flex';
+        }
+      });
+    }
+
+    // Convert Form Data to WhatsApp Message & Open WhatsApp (Just like screenshot)
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = (document.getElementById('quoteName')?.value || '').trim();
+        const brand = (document.getElementById('quoteBrand')?.value || '').trim();
+        const phone = (document.getElementById('quotePhone')?.value || '').trim();
+        const email = (document.getElementById('quoteEmail')?.value || '').trim();
+
+        const typeEl = document.getElementById('quoteWebsiteType');
+        const websiteType = typeEl && typeEl.selectedIndex > 0 ? typeEl.options[typeEl.selectedIndex].text : 'General Inquiry';
+
+        const platformEl = document.getElementById('quotePlatform');
+        const platform = platformEl && platformEl.selectedIndex > 0 ? platformEl.options[platformEl.selectedIndex].text : 'Recommendation Needed';
+
+        const budgetEl = document.getElementById('quoteBudget');
+        const budget = budgetEl && budgetEl.selectedIndex > 0 ? budgetEl.options[budgetEl.selectedIndex].text : 'Flexible';
+
+        // Format inquiry message for WhatsApp
+        const message = 
+`*New Website Project Inquiry - White Ink* ✨
+───────────────────────────
+👤 *Name:* ${name}
+🏢 *Business / Brand:* ${brand}
+📞 *Phone:* ${phone}
+✉️ *Email:* ${email}
+🌐 *Website Type:* ${websiteType}
+🛠️ *Preferred Platform:* ${platform}
+💰 *Estimated Budget:* ${budget}
+───────────────────────────
+_Hi White Ink team, I just filled out the website inquiry form on your website. Looking forward to discussing this project!_`;
+
+        // Clean & normalize phone number (Ensure country code 91 is included)
+        let cleanPhone = WHITEINK_WHATSAPP_NUMBER.replace(/\D/g, '');
+        if (cleanPhone.length === 10) {
+          cleanPhone = '91' + cleanPhone;
+        }
+
+        // WhatsApp Click to Chat URL (api.whatsapp.com/send format)
+        const whatsappUrl = `https://api.whatsapp.com/send/?phone=${cleanPhone}&text=${encodeURIComponent(message)}`;
+
+        // Open WhatsApp in new tab / app
+        const win = window.open(whatsappUrl, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = whatsappUrl;
+        }
+
+        // Reset and close dialog smoothly
+        quoteForm.reset();
+        if (quoteBox && quoteTrigger) {
           quoteBox.classList.remove('active');
           quoteTrigger.style.display = 'flex';
         }
