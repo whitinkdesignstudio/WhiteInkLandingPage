@@ -8086,19 +8086,22 @@
         const budgetEl = document.getElementById('quoteBudget');
         const budget = budgetEl && budgetEl.selectedIndex > 0 ? budgetEl.options[budgetEl.selectedIndex].text : 'Flexible';
 
-        // Format inquiry message for WhatsApp
+        // Format clean, professional inquiry message (No broken emojis or asterisks, clean spacing)
         const message = 
-`*New Website Project Inquiry - White Ink* ✨
-───────────────────────────
-👤 *Name:* ${name}
-🏢 *Business / Brand:* ${brand}
-📞 *Phone:* ${phone}
-✉️ *Email:* ${email}
-🌐 *Website Type:* ${websiteType}
-🛠️ *Preferred Platform:* ${platform}
-💰 *Estimated Budget:* ${budget}
-───────────────────────────
-_Hi White Ink team, I just filled out the website inquiry form on your website. Looking forward to discussing this project!_`;
+`Hi White Ink Team,
+
+I would like to inquire about building a website. Here are my project details:
+
+- Name: ${name}
+- Business / Brand: ${brand}
+- Phone: ${phone}
+- Email: ${email}
+
+- Website Type: ${websiteType}
+- Preferred Platform: ${platform}
+- Estimated Budget: ${budget}
+
+Could you please share pricing and project details? Thank you!`;
 
         // Clean & normalize phone number (Ensure country code 91 is included)
         let cleanPhone = WHITEINK_WHATSAPP_NUMBER.replace(/\D/g, '');
