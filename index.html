@@ -147,43 +147,59 @@
       transform: translateX(3px);
     }
 
-    /* Hero Section */
+    /* Hero Section with Custom Background */
     .hero {
       position: relative;
-      padding: 20px 0 40px;
+      padding: 95px 0 105px;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
       overflow: hidden;
+      background-color: #fcf9f4;
+      background-image: url('./assets/Websites%20That%20Grow%20Businesses.png');
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: cover;
+    }
+
+    /* Subtle circular gradient blob behind content */
+    .hero::before {
+      display: none;
+    }
+
+    /* Hero Container: Left-aligned to sit perfectly in the clean space */
+    .hero .container {
+      max-width: 100%;
+      margin: 0;
+      /* 👈 IS PADDING-LEFT SE AAP TEXT KO OR LEFT / RIGHT SHIFT KAR SAKTE HAIN: */
+      padding-left: clamp(28px, 4.5vw, 75px);
+      padding-right: 30px;
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1.35fr;
+      display: flex;
       align-items: center;
-      gap: 40px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
     }
 
     /* Hero Left */
     .hero-content {
-      max-width: 540px;
+      max-width: 480px;
+      position: relative;
       z-index: 10;
-    }
-
-    .hero-tag {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #1a1f29;
-      margin-bottom: 22px;
-      display: inline-block;
+      /* 👈 YAHA margin-left SE BHI SHIFT HO SAKTA HAI (e.g. margin-left: 0px ya 20px): */
+      margin-left: 0;
     }
 
     .hero-heading {
-      font-size: 53px;
-      line-height: 1.12;
+      font-size: 48px;
+      line-height: 1.14;
       font-weight: 800;
-      letter-spacing: -1.6px;
+      letter-spacing: -1.5px;
       color: #11141a;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .hero-heading .highlight {
@@ -192,19 +208,19 @@
     }
 
     .hero-desc {
-      font-size: 16.5px;
+      font-size: 16px;
       line-height: 1.55;
       color: #4b5565;
       font-weight: 500;
-      margin-bottom: 34px;
-      max-width: 480px;
+      margin-bottom: 30px;
+      max-width: 440px;
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 50px;
+      margin-bottom: 0;
     }
 
     .btn-primary {
@@ -256,72 +272,124 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Features Row */
-    .features-row {
+    /* Hero Right - Mockup Showcase with Floating Badges */
+    .hero-mockup-wrap {
+      position: relative;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(0, 0, 0, 0.04);
-      max-width: 530px;
+      min-height: 480px;
     }
 
-    .feature-item {
+    /* ---- Floating Feature Badges ---- */
+    .hero-float-badge {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       gap: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+      z-index: 15;
+      white-space: nowrap;
+      border: 1px solid rgba(0, 0, 0, 0.04);
     }
 
-    .feature-icon {
-      color: #1c2024;
+    .hero-float-badge .badge-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .feature-text {
-      font-size: 12.5px;
+    .hero-float-badge .badge-icon.icon-beige {
+      background: rgba(194, 148, 56, 0.1);
+    }
+
+    .hero-float-badge .badge-icon.icon-amber {
+      background: #c29438;
+    }
+
+    .hero-float-badge .badge-icon.icon-light {
+      background: rgba(194, 148, 56, 0.08);
+    }
+
+    .hero-float-badge .badge-label {
+      font-size: 13px;
       font-weight: 700;
+      color: #11141a;
       line-height: 1.25;
-      color: #1f242e;
     }
 
-    /* Hero Right - Realistic Devices Showcase */
-    .hero-mockup-wrap {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      min-height: 480px;
+    /* Badge positions */
+    .badge-modern-design {
+      top: 10px;
+      left: 28%;
+      animation: floatBadge1 4s ease-in-out infinite alternate;
     }
 
-    /* Realistic Laptop */
+    .badge-fast-performance {
+      top: 48%;
+      left: -10px;
+      animation: floatBadge2 4.5s ease-in-out infinite alternate;
+    }
+
+    .badge-seo-optimized {
+      top: 15%;
+      right: -20px;
+      animation: floatBadge3 3.8s ease-in-out infinite alternate;
+    }
+
+    .badge-secure-reliable {
+      bottom: 18%;
+      right: -30px;
+      animation: floatBadge4 4.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBadge1 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    @keyframes floatBadge2 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+    @keyframes floatBadge3 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-7px); }
+    }
+    @keyframes floatBadge4 {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-9px); }
+    }
+
+    /* ---- Laptop Mockup ---- */
     .laptop-container {
       position: relative;
       width: 100%;
-      max-width: 680px;
-      perspective: 1200px;
+      max-width: 580px;
       z-index: 1;
     }
 
     .laptop-lid {
       background: #111317;
-      border-radius: 18px 18px 4px 4px;
-      padding: 12px 12px 14px 12px;
-      box-shadow: 0 0 0 1px #222630;
+      border-radius: 16px 16px 4px 4px;
+      padding: 10px 10px 12px 10px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 0 0 1px #222630;
       position: relative;
     }
 
-    /* Laptop Camera / Top bezel */
     .laptop-camera {
       width: 5px;
       height: 5px;
       background: #252830;
       border-radius: 50%;
       position: absolute;
-      top: 5px;
+      top: 4px;
       left: 50%;
       transform: translateX(-50%);
       box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
@@ -329,23 +397,21 @@
 
     .laptop-screen {
       background: #fbfaf8;
-      border-radius: 8px;
+      border-radius: 6px;
       overflow: hidden;
       aspect-ratio: 16 / 10;
       position: relative;
       display: flex;
       flex-direction: column;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
     }
 
-    /* Laptop Base */
     .laptop-base {
       position: relative;
-      height: 13px;
+      height: 12px;
       background: linear-gradient(to bottom, #dcdfe4 0%, #b8bcc4 100%);
-      border-radius: 0 0 18px 18px;
-      box-shadow: none;
-      margin: 0 -22px;
+      border-radius: 0 0 16px 16px;
+      margin: 0 -18px;
     }
 
     .laptop-base::before {
@@ -354,840 +420,279 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 72px;
+      width: 68px;
       height: 4px;
       background: #787d87;
       border-radius: 0 0 4px 4px;
     }
 
-    /* Realistic Soft Shadow beneath - REMOVED AS REQUESTED */
-    .laptop-shadow {
-      display: none !important;
-    }
-
-    /* -------------------------------------------
-       VISUAL WEBSITE BUILDER STUDIO & DEVICES MOCKUP
-       ------------------------------------------- */
-    /* Floating UI Badge (Left of Laptop) */
-    .builder-floating-badge {
-      position: absolute;
-      left: -28px;
-      top: 50px;
-      background: rgba(255, 255, 255, 0.98);
-      border: 1px solid rgba(0, 128, 96, 0.3);
-      border-radius: 14px;
-      padding: 12px 14px;
-      box-shadow: none;
-      z-index: 8;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      max-width: 195px;
-      animation: floatBadge 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatBadge {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-8px); }
-    }
-
-    .bfb-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(194, 148, 56, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .bfb-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #181410;
-      line-height: 1.2;
-    }
-
-    .bfb-sub {
-      font-size: 9px;
-      color: #6e5e4e;
-      margin-top: 2px;
-      line-height: 1.3;
-    }
-
-    .bfb-pills {
-      display: flex;
-      gap: 4px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-
-    .bfb-pill {
-      font-size: 7.5px;
-      font-weight: 700;
-      background: #f4efe6;
-      color: #4a3826;
-      padding: 2px 6px;
-      border-radius: 999px;
-      border: 1px solid rgba(194, 148, 56, 0.15);
-    }
-
-    /* Builder Studio inside Laptop (Shopify Store Builder) */
-    .builder-studio {
+    /* ---- Inner Website Inside Laptop ---- */
+    .mockup-website {
       height: 100%;
       display: flex;
       flex-direction: column;
-      background: #f1f2f4;
+      background: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       user-select: none;
     }
 
-    /* Top Shopify Theme Customizer Bar */
-    .builder-topbar {
-      height: 29px;
-      background: #1a1a1a;
-      color: #ffffff;
-      border-bottom: 1px solid #2d2d2d;
+    /* Inner site header */
+    .mock-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
-      flex-shrink: 0;
+      padding: 6px 12px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
-    .btb-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .shopify-bag-svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .btb-project-title {
-      font-size: 8.5px;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .btb-project-title span {
-      font-weight: 400;
-      color: #8c9196;
-    }
-
-    .shopify-live-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      font-size: 7px;
-      font-weight: 600;
-      color: #c29438;
-      background: rgba(194, 148, 56, 0.15);
-      padding: 1px 5px;
-      border-radius: 99px;
-    }
-
-    .shopify-live-dot::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      background: #c29438;
-      border-radius: 50%;
-    }
-
-    .btb-center {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .shopify-page-dropdown {
-      font-size: 7.5px;
-      font-weight: 600;
-      color: #e3e3e3;
-      background: #2b2b2b;
-      padding: 2px 7px;
-      border-radius: 4px;
-      border: 1px solid #3d3d3d;
+    .mock-logo {
+      font-size: 11px;
+      font-weight: 800;
+      color: #11141a;
       display: flex;
       align-items: center;
       gap: 4px;
     }
 
-    .btb-view-tools {
-      display: flex;
-      align-items: center;
-      background: #2b2b2b;
-      padding: 2px;
+    .mock-logo-w {
+      width: 18px;
+      height: 18px;
+      background: #11141a;
+      color: #ffffff;
       border-radius: 4px;
-      gap: 2px;
-      border: 1px solid #3d3d3d;
-    }
-
-    .btb-tool-btn {
-      border: none;
-      background: transparent;
-      padding: 2px 5px;
-      border-radius: 2px;
-      color: #888888;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .btb-tool-btn.active {
-      background: #3f3f3f;
-      color: #ffffff;
-    }
-
-    .btb-right {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .shopify-save-btn {
-      background: #c29438;
-      color: #ffffff;
-      border: none;
-      padding: 3px 9px;
-      border-radius: 4px;
-      font-size: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.2px;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    /* Shopify Workspace: Left Sections Tree + Canvas Preview */
-    .builder-workspace {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-      background: #f1f2f4;
-    }
-
-    /* Left Sidebar: Shopify Theme Sections Tree */
-    .shopify-sidebar {
-      width: 108px;
-      background: #ffffff;
-      border-right: 1px solid #e1e3e5;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      padding: 5px 0;
-    }
-
-    .shopify-sidebar-header {
-      font-size: 7px;
-      font-weight: 700;
-      color: #6d7175;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 2px 8px 4px;
-      border-bottom: 1px solid #f1f2f4;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .shopify-section-group {
-      padding: 3px 5px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .shopify-group-title {
-      font-size: 6.5px;
-      font-weight: 700;
-      color: #8c9196;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      padding: 1px 2px;
-    }
-
-    .shopify-tree-item {
-      font-size: 7px;
-      color: #202223;
-      padding: 2.5px 5px;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-    }
-
-    .shopify-tree-item.active {
-      background: rgba(194, 148, 56, 0.12);
-      color: #c29438;
-      font-weight: 700;
-      border: 1px solid rgba(194, 148, 56, 0.35);
-    }
-
-    .shopify-tree-item .item-dot {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #8c9196;
-    }
-
-    .shopify-tree-item.active .item-dot {
-      background: #c29438;
-    }
-
-    .shopify-add-section-btn {
-      margin: auto 6px 3px 6px;
-      font-size: 6.5px;
-      font-weight: 700;
-      color: #c29438;
-      background: rgba(194, 148, 56, 0.08);
-      border: 1px dashed rgba(194, 148, 56, 0.4);
-      padding: 3px 6px;
-      border-radius: 3px;
-      text-align: center;
-    }
-
-    /* Center Canvas: The Shopify Store Preview */
-    .builder-canvas {
-      flex: 1;
-      margin: 5px;
-      background: #ffffff;
-      border-radius: 5px;
-      border: 1px solid #e1e3e5;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 6px 8px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .b-canvas-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 4px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .b-canvas-brand {
-      font-family: 'Cinzel', serif;
       font-size: 9px;
       font-weight: 800;
-      color: #1a1a1a;
-      letter-spacing: 1px;
     }
 
-    .b-canvas-brand span {
-      color: #c29438;
-      font-size: 6px;
-      font-family: -apple-system, sans-serif;
-      margin-left: 2px;
+    .mock-nav {
+      display: flex;
+      gap: 10px;
+      font-size: 7px;
       font-weight: 600;
+      color: #6b7280;
     }
 
-    .b-canvas-links {
-      display: flex;
-      gap: 7px;
-      font-size: 6px;
-      font-weight: 600;
-      color: #5c5f62;
-    }
-
-    .b-canvas-cart-btn {
-      background: #11141a;
-      color: #ffffff;
-      font-size: 6px;
-      font-weight: 700;
-      padding: 2px 5px;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    /* Scrollable Canvas Body for Multiple Sections */
-    .b-canvas-scroll-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      overflow-y: auto;
-      padding: 3px 1px;
-      scrollbar-width: thin;
-      scrollbar-color: #e5e7eb transparent;
-    }
-    .b-canvas-scroll-body::-webkit-scrollbar {
-      width: 3px;
-    }
-    .b-canvas-scroll-body::-webkit-scrollbar-thumb {
-      background: #e5e7eb;
-      border-radius: 3px;
-    }
-
-    /* Section 1: Active Shopify Section Box (Hero Banner) */
-    .b-canvas-hero-box {
-      border: 1.5px solid #c29438;
-      background: rgba(194, 148, 56, 0.025);
-      border-radius: 4px;
-      padding: 6px 7px 5px;
-      position: relative;
-      margin-top: 4px;
-    }
-
-    .b-element-tag {
-      position: absolute;
-      top: -5.5px;
-      left: 7px;
+    .mock-contact-btn {
       background: #c29438;
       color: #ffffff;
-      font-size: 5.5px;
+      font-size: 6.5px;
       font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 2px;
-      letter-spacing: 0.3px;
+      padding: 3px 8px;
+      border-radius: 4px;
     }
 
-    .b-handle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #ffffff;
-      border: 1px solid #c29438;
-      border-radius: 1px;
-    }
-    .b-handle-tl { top: -2px; left: -2px; }
-    .b-handle-tr { top: -2px; right: -2px; }
-    .b-handle-bl { bottom: -2px; left: -2px; }
-    .b-handle-br { bottom: -2px; right: -2px; }
-
-    .b-canvas-content-grid {
+    /* Inner site hero */
+    .mock-hero {
+      flex: 1;
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 6px;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
+      padding: 10px 14px 6px;
+      gap: 8px;
     }
 
-    .b-mini-badge {
-      display: inline-block;
-      font-size: 5.5px;
-      font-weight: 700;
-      color: #c29438;
-      background: rgba(194, 148, 56, 0.12);
-      padding: 1px 4px;
-      border-radius: 2px;
-      margin-bottom: 2px;
-      letter-spacing: 0.3px;
-    }
-
-    .b-canvas-title {
-      font-size: 11px;
+    .mock-hero-text h3 {
+      font-size: 14px;
       font-weight: 800;
-      line-height: 1.2;
       color: #11141a;
-      margin-bottom: 2px;
-      letter-spacing: -0.2px;
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+      margin-bottom: 3px;
     }
 
-    .b-canvas-highlight {
-      color: #c29438;
-    }
-
-    .b-canvas-desc {
-      font-size: 6px;
-      color: #6d7175;
-      line-height: 1.3;
+    .mock-hero-text p {
+      font-size: 6.5px;
+      color: #6b7280;
       margin-bottom: 4px;
     }
 
-    .b-canvas-cta-row {
-      display: flex;
-      gap: 3px;
-      align-items: center;
-    }
-
-    .b-canvas-primary-cta {
-      background: #11141a;
+    .mock-hero-cta {
+      background: #c29438;
       color: #ffffff;
-      font-size: 6px;
+      font-size: 6.5px;
       font-weight: 700;
-      padding: 2px 5px;
-      border-radius: 3px;
-    }
-
-    .b-canvas-secondary-cta {
-      border: 1px solid #d2d5d8;
-      color: #202223;
-      font-size: 6px;
-      font-weight: 600;
-      padding: 1.5px 4px;
-      border-radius: 3px;
-      background: #ffffff;
-    }
-
-    /* Right Preview Product / Quality Card */
-    .b-canvas-card {
-      background: #fbfaf8;
-      border: 1px solid #e1e3e5;
+      padding: 3px 8px;
       border-radius: 4px;
-      padding: 5px 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5px;
-    }
-
-    .b-stat-chip {
-      font-size: 5.8px;
-      font-weight: 700;
-      padding: 1.5px 4px;
-      border-radius: 3px;
       display: inline-flex;
       align-items: center;
       gap: 3px;
-      width: fit-content;
     }
 
-    .chip-gold {
-      background: rgba(194, 148, 56, 0.14);
-      color: #996e1b;
-    }
-
-    /* Section 2: Featured Collection / Product Grid Box */
-    .b-canvas-section-grid-box {
-      border: 1px dashed rgba(194, 148, 56, 0.5);
-      background: #fbfaf8;
-      border-radius: 4px;
-      padding: 6px 7px 5px;
-      position: relative;
-      margin-top: 5px;
-    }
-
-    .b-section-label {
-      position: absolute;
-      top: -5px;
-      left: 7px;
-      background: #24180f;
-      color: #c29438;
-      font-size: 5.5px;
-      font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 2px;
-      letter-spacing: 0.3px;
-      border: 1px solid rgba(194, 148, 56, 0.3);
-    }
-
-    .b-products-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      margin-top: 2px;
-    }
-
-    .b-product-card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 3px;
-      padding: 3px 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5px;
-    }
-
-    .b-product-thumb {
-      width: 100%;
-      height: 22px;
-      background: linear-gradient(135deg, #f7f5f0 0%, #ede9e0 100%);
-      border-radius: 2px;
+    .mock-hero-image {
+      background: linear-gradient(135deg, #f0ebe3 0%, #e8dfd2 100%);
+      border-radius: 6px;
+      height: 85%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 9px;
-    }
-
-    .b-product-name {
-      font-size: 5.8px;
-      font-weight: 700;
-      color: #1f2937;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .b-product-price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 5.5px;
-    }
-
-    .b-product-price {
-      font-weight: 700;
-      color: #c29438;
-    }
-
-    .b-product-btn {
-      background: #11141a;
-      color: #ffffff;
-      font-size: 5px;
-      font-weight: 700;
-      padding: 1px 3px;
-      border-radius: 2px;
-    }
-
-    /* Section 3: Trust Features Strip */
-    .b-canvas-trust-strip {
-      border: 1px solid #e8e6df;
-      background: #ffffff;
-      border-radius: 3px;
-      padding: 4px 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
       position: relative;
-      margin-top: 5px;
+      overflow: hidden;
     }
 
-    .b-trust-item {
+    .mock-hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23e8dfd2'/%3E%3Cpath d='M5 25 Q 10 15 20 20 Q 30 25 35 15' stroke='%23c29438' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E") center/cover;
+      opacity: 0.5;
+    }
+
+    /* Inner site services section */
+    .mock-services {
+      padding: 6px 14px 10px;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .mock-services-title {
+      font-size: 9px;
+      font-weight: 800;
+      color: #11141a;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .mock-services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .mock-service-card {
+      background: #fbfaf6;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      padding: 5px 4px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .mock-service-card .svc-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(194, 148, 56, 0.1);
       display: flex;
       align-items: center;
-      gap: 3px;
+      justify-content: center;
+    }
+
+    .mock-service-card .svc-name {
       font-size: 5.5px;
       font-weight: 700;
       color: #374151;
+      line-height: 1.2;
     }
 
-    .b-trust-item svg {
-      color: #c29438;
-    }
-
-    /* Bottom Status Bar */
-    .b-canvas-blocks-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 3px;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      font-size: 6px;
-      color: #8c9196;
-      font-weight: 500;
-    }
-
-    /* Realistic Mobile Device (iPhone) - LIVE TESTING VIEW (NO DROP SHADOW) */
+    /* ---- Phone Mockup ---- */
     .phone-mockup {
       position: absolute;
-      right: -24px;
-      bottom: -28px;
-      width: 190px;
-      height: 380px;
+      right: -10px;
+      bottom: 0;
+      width: 140px;
+      height: 265px;
       background: #0c0d10;
-      border-radius: 38px;
-      padding: 8px;
-      box-shadow: 0 0 0 2px #262930, inset 0 0 0 1.5px rgba(255, 255, 255, 0.2);
+      border-radius: 28px;
+      padding: 6px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 0 0 2px #262930, inset 0 0 0 1.5px rgba(255, 255, 255, 0.15);
       z-index: 10;
       display: flex;
       flex-direction: column;
     }
 
-    /* Dynamic Island */
     .phone-island {
       position: absolute;
-      top: 13px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 54px;
-      height: 14px;
+      width: 42px;
+      height: 11px;
       background: #000;
-      border-radius: 12px;
+      border-radius: 10px;
       z-index: 20;
     }
 
     .phone-screen {
       width: 100%;
       height: 100%;
-      background: #fbfaf6;
-      border-radius: 30px;
+      background: #1a1a2e;
+      border-radius: 22px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
-    /* Mobile Browser Address Bar (Testing on Phone) */
-    .phone-browser-bar {
-      padding: 22px 10px 6px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .phone-url-pill {
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 2px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 7px;
-      color: #374151;
-      font-weight: 600;
-    }
-
-    .phone-url-text {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .phone-qa-badge {
-      font-size: 6.5px;
-      font-weight: 700;
-      color: #c29438;
-      background: rgba(194, 148, 56, 0.15);
-      padding: 1px 5px;
-      border-radius: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      width: fit-content;
-    }
-
-    .phone-body {
+    .phone-dark-content {
       flex: 1;
-      position: relative;
+      padding: 28px 10px 10px;
       display: flex;
       flex-direction: column;
-      padding: 10px 10px 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #f7f6f2 100%);
-      overflow: hidden;
-    }
-
-    .phone-store-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 7px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      margin-bottom: 7px;
-    }
-
-    .phone-brand {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: #1e1b18;
-    }
-
-    .phone-hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5px;
-    }
-
-    .phone-hamburger span {
-      width: 12px;
-      height: 1.5px;
-      background: #2b2824;
-      border-radius: 2px;
-    }
-
-    .phone-hero-preview {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .phone-preview-tag {
-      font-size: 6.5px;
-      font-weight: 700;
-      color: #c29438;
-      background: rgba(194, 148, 56, 0.12);
-      padding: 1.5px 5px;
-      border-radius: 3px;
-      width: fit-content;
-      letter-spacing: 0.4px;
-    }
-
-    .phone-preview-heading {
-      font-size: 13px;
-      font-weight: 800;
-      color: #11141a;
-      line-height: 1.22;
-      letter-spacing: -0.3px;
-    }
-
-    .phone-preview-desc {
-      font-size: 8px;
-      color: #5c5f62;
-      line-height: 1.35;
-    }
-
-    .phone-buy-action {
-      background: #11141a;
-      color: #ffffff;
-      padding: 5.5px 8px;
-      border-radius: 5px;
-      font-size: 7.5px;
-      font-weight: 700;
-      text-align: center;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 6px;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    .phone-dark-content .pd-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+    }
+
+    .phone-dark-content .pd-sub {
+      font-size: 6.5px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.4;
+    }
+
+    .phone-dark-content .pd-btn {
+      background: #c29438;
+      color: #ffffff;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 5px;
+      width: fit-content;
       margin-top: 2px;
     }
 
-    .phone-test-metrics {
-      margin-top: auto;
-      background: #ffffff;
-      border: 1px solid rgba(194, 148, 56, 0.3);
-      border-radius: 7px;
-      padding: 6px 7px;
+    .phone-dark-cards {
       display: flex;
-      flex-direction: column;
-      gap: 3px;
+      gap: 4px;
+      padding: 6px 10px 10px;
+      background: #16213e;
     }
 
-    .phone-test-title {
-      font-size: 6.5px;
-      font-weight: 700;
-      color: #c29438;
+    .phone-dark-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 5px;
+      padding: 5px 4px;
+      text-align: center;
+    }
+
+    .phone-dark-card .pdc-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(194, 148, 56, 0.2);
+      margin: 0 auto 3px;
       display: flex;
       align-items: center;
-      gap: 3px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
+      justify-content: center;
     }
 
-    .phone-test-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 7px;
-      color: #374151;
-      font-weight: 600;
-    }
-
-    .phone-test-val {
-      color: #c29438;
+    .phone-dark-card .pdc-label {
+      font-size: 5px;
       font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     /* Responsive */
@@ -1203,9 +708,16 @@
         justify-content: center;
       }
       .laptop-container {
-        max-width: 620px;
+        max-width: 520px;
+      }
+      .badge-seo-optimized {
+        right: 0;
+      }
+      .badge-secure-reliable {
+        right: -10px;
       }
     }
+
 
     /* -------------------------------------------
        SECTION 1: OFFICIAL PARTNERS
@@ -1648,7 +1160,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(8, 1fr);
       gap: 16px;
     }
 
@@ -2832,6 +2344,62 @@
 
     .trusted-logo-card.is-link:hover .trusted-logo-img {
       transform: scale(1.03);
+    }
+
+    /* 1. Super-Boosted Extra-Large Logos (Thekadi, Mandap Ethnics, Pushpam, Kore Exim, Airvion) */
+    .trusted-logo-img[src*="thekadi"],
+    .trusted-logo-img[src*="mandap"],
+    .trusted-logo-img[src*="koreexim"],
+    .trusted-logo-img[src*="airvion"] {
+      max-width: 98% !important;
+      max-height: 72px !important;
+      transform: scale(1.42);
+      transform-origin: center center;
+    }
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="thekadi"],
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="mandap"],
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="koreexim"],
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="airvion"] {
+      transform: scale(1.48);
+    }
+
+    /* Pushpam white logo visibility fix + Super-Boosted Extra-Large Size */
+    .trusted-logo-img[src*="pushpam"] {
+      filter: brightness(0);
+      max-width: 98% !important;
+      max-height: 72px !important;
+      transform: scale(1.42);
+      transform-origin: center center;
+    }
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="pushpam"] {
+      filter: brightness(0);
+      transform: scale(1.48);
+    }
+
+    /* 2. Enhanced visibility & size boost for other partner logos */
+    .trusted-logo-img[src*="hcct"],
+    .trusted-logo-img[src*="special"],
+    .trusted-logo-img[src*="learnandturn"] {
+      max-width: 96% !important;
+      max-height: 60px !important;
+      transform: scale(1.22);
+      transform-origin: center center;
+    }
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="hcct"],
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="special"],
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="learnandturn"] {
+      transform: scale(1.28);
+    }
+
+    /* Hevert logo visibility & sizing */
+    .trusted-logo-img[src*="hevert"] {
+      max-width: 95% !important;
+      max-height: 56px !important;
+      transform: scale(1.14);
+      transform-origin: center center;
+    }
+    .trusted-logo-card.is-link:hover .trusted-logo-img[src*="hevert"] {
+      transform: scale(1.2);
     }
 
     /* Generic Clean Neutral Placeholder for pending assets */
@@ -4889,14 +4457,23 @@
     @media (max-width: 768px) {
       /* Hero Layout */
       .hero {
-        padding: 24px 0 36px;
+        padding: 55px 0 65px;
+        min-height: auto;
+        background-position: 75% center;
       }
       .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
       }
       .hero-content {
         max-width: 100%;
+        background: rgba(252, 249, 244, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 24px 20px;
+        border-radius: 18px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         text-align: left;
       }
       .hero-heading {
@@ -5454,7 +5031,7 @@
         <div class="hero-content">
           
           <h1 class="hero-heading">
-            Websites That Don’t Just Look Good.
+            Websites That Don't Just Look Good.
             <span class="highlight">They Grow Businesses.</span>
           </h1>
 
@@ -5463,339 +5040,9 @@
           </p>
 
           <div class="hero-actions">
-            
             <a href="#work" class="btn-secondary">
               Explore Our Work
             </a>
-          </div>
-
-
-
-        </div>
-
-        <!-- Right Column: Visual Website Creator & Devices Mockup -->
-        <div class="hero-mockup-wrap">
-          
-          <!-- Floating UI Badge: Agency Guarantee & Custom Build -->
-          <div class="builder-floating-badge">
-            <div class="bfb-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c29438" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
-            </div>
-            <div class="bfb-content">
-              <div class="bfb-title">Bespoke Web Studio</div>
-              <div class="bfb-sub">48h Delivery • 100% Custom</div>
-              <div class="bfb-pills">
-                <span class="bfb-pill">React</span>
-                <span class="bfb-pill">Shopify</span>
-                <span class="bfb-pill">WordPress</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Realistic Laptop Chassis -->
-          <div class="laptop-container">
-            <div class="laptop-lid">
-              <div class="laptop-camera"></div>
-              
-              <!-- Laptop Screen: Shopify Theme Customizer / Store Builder -->
-              <div class="laptop-screen">
-                <div class="builder-studio">
-                  
-                  <!-- Top Shopify Editor Bar -->
-                  <div class="builder-topbar">
-                    <div class="btb-left">
-                      <!-- Shopify Bag Logo -->
-                      <svg class="shopify-bag-svg" viewBox="0 0 24 24" fill="none">
-                        <path d="M15.7 3.5a1.2 1.2 0 0 0-.9-.2l-1.3.4a2.5 2.5 0 0 0-1.7.1l-1.1.4a1.2 1.2 0 0 0-.7 1.1l-.8 11.4a1.2 1.2 0 0 0 .6 1.1l9.1 5.1a1.2 1.2 0 0 0 1.3-.2l4.8-5.3a1.2 1.2 0 0 0 .3-.7L24 4.8a1.2 1.2 0 0 0-1-1.1l-7.3-.2z" fill="#95BF47"/>
-                        <path d="M15.2 15.2c-.4.2-.9.3-1.4.3-1.3 0-2.3-.7-2.3-2.2 0-1.9 1.9-2.4 3.7-2.5v4.4zm0-6c-2.5.1-5.3 1-5.3 4.1 0 2.3 1.7 3.8 3.8 3.8 1.1 0 1.8-.3 2.2-.6l-.4 2.3c-.5.2-1.4.4-2.2.4-3.4 0-5.6-2.2-5.6-5.5 0-3.5 2.8-6.1 6.8-6.4l.7 1.9z" fill="#ffffff"/>
-                      </svg>
-                      <span class="btb-project-title">Shopify <span>• Dawn Theme</span></span>
-                      <span class="shopify-live-dot">Live Edit</span>
-                    </div>
-
-                    <div class="btb-center">
-                      <div class="shopify-page-dropdown">
-                        <span>🏠 Home page</span>
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                      </div>
-                      <div class="btb-view-tools">
-                        <button class="btb-tool-btn active" title="Desktop View" type="button">
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        </button>
-                        <button class="btb-tool-btn" title="Mobile View" type="button">
-                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="btb-right">
-                      <button class="shopify-save-btn" type="button">
-                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>Save</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Shopify Workspace: Left Sections Tree + Storefront Canvas -->
-                  <div class="builder-workspace">
-                    
-                    <!-- Left Sidebar: Shopify Theme Sections Tree -->
-                    <div class="shopify-sidebar">
-                      <div class="shopify-sidebar-header">
-                        <span>Sections</span>
-                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                      </div>
-
-                      <div class="shopify-section-group">
-                        <div class="shopify-group-title">
-                          <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                          <span>Header</span>
-                        </div>
-                        <div class="shopify-tree-item">
-                          <span class="item-dot"></span>
-                          <span>Announcement</span>
-                        </div>
-                        <div class="shopify-tree-item">
-                          <span class="item-dot"></span>
-                          <span>Header &amp; Nav</span>
-                        </div>
-                      </div>
-
-                      <div class="shopify-section-group">
-                        <div class="shopify-group-title">
-                          <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                          <span>Template Sections</span>
-                        </div>
-                        <div class="shopify-tree-item active">
-                          <span class="item-dot"></span>
-                          <span>① Hero Banner</span>
-                        </div>
-                        <div class="shopify-tree-item">
-                          <span class="item-dot" style="background:#c29438;"></span>
-                          <span>② Featured Grid</span>
-                        </div>
-                        <div class="shopify-tree-item">
-                          <span class="item-dot" style="background:#c29438;"></span>
-                          <span>③ Trust Strip</span>
-                        </div>
-                        <div class="shopify-tree-item">
-                          <span class="item-dot"></span>
-                          <span>④ Reviews &amp; QA</span>
-                        </div>
-                      </div>
-
-                      <div class="shopify-add-section-btn">
-                        + Add section
-                      </div>
-                    </div>
-
-                    <!-- Center Canvas: The Shopify Store Preview (Multi-Section Construction) -->
-                    <div class="builder-canvas">
-                      
-                      <!-- Mini Store Navbar -->
-                      <div class="b-canvas-nav">
-                        <div class="b-canvas-brand">AURORA <span>JEWELS</span></div>
-                        <div class="b-canvas-links">
-                          <span>Rings</span>
-                          <span>Necklaces</span>
-                          <span>New Drop</span>
-                        </div>
-                        <span class="b-canvas-cart-btn">
-                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                          <span>Cart (1)</span>
-                        </span>
-                      </div>
-
-                      <!-- Scrollable Canvas Sections Body -->
-                      <div class="b-canvas-scroll-body">
-                        
-                        <!-- SECTION 1: HERO BANNER (Active Editing Section) -->
-                        <div class="b-canvas-hero-box">
-                          <div class="b-handle b-handle-tl"></div>
-                          <div class="b-handle b-handle-tr"></div>
-                          <div class="b-handle b-handle-bl"></div>
-                          <div class="b-handle b-handle-br"></div>
-                          <div class="b-element-tag">Section 1 • Hero Banner (Active)</div>
-
-                          <div class="b-canvas-content-grid">
-                            <div class="b-canvas-text-col">
-                              <span class="b-mini-badge">AUTUMN DROP 2026</span>
-                              <h3 class="b-canvas-title">
-                                Modern Elegance. <span class="b-canvas-highlight">Handcrafted.</span>
-                              </h3>
-                              <p class="b-canvas-desc">
-                                18K solid vermeil &amp; lab-grown diamonds. Custom Shopify D2C store architecture.
-                              </p>
-                              <div class="b-canvas-cta-row">
-                                <span class="b-canvas-primary-cta">Shop Collection &rarr;</span>
-                                <span class="b-canvas-secondary-cta">$180 &bull; In Stock</span>
-                              </div>
-                            </div>
-
-                            <div class="b-canvas-visual-col">
-                              <div class="b-canvas-card">
-                                <div class="b-stat-chip chip-gold">
-                                  <span>✦ Handcrafted 18K</span>
-                                </div>
-                                <div class="b-stat-chip chip-gold">
-                                  <span>⚡ 0.8s Page Speed</span>
-                                </div>
-                                <div class="b-stat-chip" style="background:#24180f; color:#c29438;">
-                                  <span>★ 4.9 (1,240+ Reviews)</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- SECTION 2: FEATURED COLLECTION / PRODUCT GRID (Building / In Progress) -->
-                        <div class="b-canvas-section-grid-box">
-                          <div class="b-section-label">Section 2 • Featured Collection (Grid: 3 cols)</div>
-                          <div class="b-products-row">
-                            <div class="b-product-card">
-                              <div class="b-product-thumb">💍</div>
-                              <div class="b-product-name">Solitaire Ring</div>
-                              <div class="b-product-price-row">
-                                <span class="b-product-price">$180</span>
-                                <span class="b-product-btn">+ Add</span>
-                              </div>
-                            </div>
-                            <div class="b-product-card">
-                              <div class="b-product-thumb">✨</div>
-                              <div class="b-product-name">Diamond Pendant</div>
-                              <div class="b-product-price-row">
-                                <span class="b-product-price">$240</span>
-                                <span class="b-product-btn">+ Add</span>
-                              </div>
-                            </div>
-                            <div class="b-product-card">
-                              <div class="b-product-thumb">🌟</div>
-                              <div class="b-product-name">Gold Cuff</div>
-                              <div class="b-product-price-row">
-                                <span class="b-product-price">$160</span>
-                                <span class="b-product-btn">+ Add</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <!-- SECTION 3: TRUST & VALUE PROPOSITIONS STRIP -->
-                        <div class="b-canvas-trust-strip">
-                          <div class="b-section-label" style="top:-6px;">Section 3 • Trust Highlights</div>
-                          <div class="b-trust-item">
-                            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                            <span>Express Shipping</span>
-                          </div>
-                          <div class="b-trust-item">
-                            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-                            <span>Certified 18K Gold</span>
-                          </div>
-                          <div class="b-trust-item">
-                            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>Lifetime Warranty</span>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <!-- Bottom Section Status Bar -->
-                      <div class="b-canvas-blocks-strip">
-                        <span>Shopify Theme Builder • 3 Sections Synced</span>
-                        <span style="color:#c29438; font-weight:700;">● Live Preview on Mobile...</span>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <!-- Laptop Base (NO SHADOW) -->
-            <div class="laptop-base"></div>
-          </div>
-
-          <!-- Realistic Phone Mockup: Live Mobile Preview & QA Check (NO SHADOW) -->
-          <div class="phone-mockup">
-            <div class="phone-island"></div>
-            <div class="phone-screen">
-              
-              <!-- Mobile Browser Address Bar (Testing on Phone) -->
-              <div class="phone-browser-bar">
-                <div class="phone-url-pill">
-                  <span class="phone-url-text">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span>aurora-store.myshopify.com</span>
-                  </span>
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:center; padding: 0 2px;">
-                  <span class="phone-qa-badge">● MOBILE QA: LIVE PASS</span>
-                  <span style="font-size: 6.5px; color:#6b7280; font-weight:600;">Viewport: 390px</span>
-                </div>
-              </div>
-
-              <!-- Mobile Storefront Body -->
-              <div class="phone-body">
-                
-                <div class="phone-store-header">
-                  <div class="phone-hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <span class="phone-brand">AURORA</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                </div>
-
-                <div class="phone-hero-preview">
-                  <span class="phone-preview-tag">AUTUMN DROP 2026</span>
-                  <div class="phone-preview-heading">Modern Elegance. Handcrafted.</div>
-                  <p class="phone-preview-desc">18K solid vermeil &amp; lab diamonds. High-speed mobile storefront.</p>
-                  
-                  <div class="phone-buy-action">
-                    <span>Add to Bag &bull; $180</span>
-                  </div>
-                  
-                  <!-- Mini Mobile Product Grid Preview -->
-                  <div style="display:flex; gap:4px; margin-top:2px;">
-                    <div style="flex:1; background:#ffffff; border:1px solid #e5e7eb; border-radius:4px; padding:3px 4px; font-size:6px;">
-                      <div style="color:#11141a; font-weight:700;">💍 Ring</div>
-                      <div style="color:#c29438; font-weight:700;">$180</div>
-                    </div>
-                    <div style="flex:1; background:#ffffff; border:1px solid #e5e7eb; border-radius:4px; padding:3px 4px; font-size:6px;">
-                      <div style="color:#11141a; font-weight:700;">✨ Pendant</div>
-                      <div style="color:#c29438; font-weight:700;">$240</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Testing / QA Results Box at Bottom -->
-                <div class="phone-test-metrics">
-                  <div class="phone-test-title">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <span>Mobile Responsiveness Check</span>
-                  </div>
-                  <div class="phone-test-row">
-                    <span>Touch targets:</span>
-                    <span class="phone-test-val">100% Passed</span>
-                  </div>
-                  <div class="phone-test-row">
-                    <span>Load time:</span>
-                    <span class="phone-test-val">0.8s (Fast)</span>
-                  </div>
-                  <div class="phone-test-row">
-                    <span>Multi-Section Sync:</span>
-                    <span class="phone-test-val">Active</span>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
           </div>
 
         </div>
@@ -5803,6 +5050,7 @@
       </div>
     </div>
   </main>
+
 
   <!-- -------------------------------------------
        SECTION 4: OUR SERVICES
@@ -5926,6 +5174,21 @@
           <div class="service-title">Website<br>Redesign</div>
         </div>
 
+        <!-- 8. SEO & Ranking -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c29438" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Search Lens (Google / Search Engine) -->
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.2" y2="16.2" stroke-width="2.2"/>
+              <!-- Page Ranking Upward Growth Trendline & Arrow -->
+              <path d="M7.5 13.5l2.5-3 2.2 2.2 3.8-4.7" stroke-width="1.8"/>
+              <polyline points="13 8 16 8 16 11" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <div class="service-title">SEO &amp;<br>Ranking</div>
+        </div>
+
       </div>
 
     </div>
@@ -5968,18 +5231,13 @@
             <span class="tech-name">WordPress</span>
           </div>
 
-          <!-- 3. Wix (accurate wordmark: bold black W-i-x, orange dot on i) -->
+          <!-- 3. Wix Studio -->
           <div class="tech-item">
-            <svg width="58" height="22" viewBox="0 0 310 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 10 Q2 8 5 10 L22 65 L38 28 Q40 22 46 22 Q52 22 54 28 L70 65 L87 10 Q90 7 95 10 Q98 13 96 18 L73 92 Q71 98 64 98 Q57 98 55 92 L42 55 L29 92 Q27 98 20 98 Q13 98 11 92 L-1 18 Q-3 13 0 10Z" fill="#1A1A1A"/>
-              <circle cx="130" cy="20" r="10" fill="#E8A838"/>
-              <rect x="122" y="38" width="16" height="60" rx="6" fill="#1A1A1A"/>
-              <path d="M165 38 L192 68 L165 98 L184 98 L200 76 L216 98 L235 98 L208 68 L235 38 L216 38 L200 60 L184 38Z" fill="#1A1A1A"/>
-            </svg>
-            <span class="tech-name" style="display:none;">Wix</span>
+            <img src="./assets/logo/wix-studio.webp" alt="Wix Studio Logo" class="tech-wix-logo" style="max-height: 42px; max-width: 52px; width: auto; height: auto; object-fit: contain; display: block; transform: scale(1.25);">
+            <span class="tech-name">Wix Studio</span>
           </div>
 
-          <!-- 4. Webflow (2023 rebrand — bold blue W mark) -->
+          <!-- 4. Webflow (2023 rebrand â€” bold blue W mark) -->
           <div class="tech-item">
             <svg width="38" height="24" viewBox="0 0 1080 674" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill="#146EF5" fill-rule="evenodd" d="M1080 0 735.386 673.684H411.695l144.221-279.203h-6.471C430.464 548.934 252.942 650.61-.0005 673.684v-275.34s161.8135-9.557 256.9385-109.568H-.0005V.0053H288.771V237.515l6.481-.026L413.254.0053h218.39V236.009l6.482-.01L760.555 0H1080Z" clip-rule="evenodd"/>
@@ -6210,7 +5468,7 @@
         <div class="section-lined-header" style="margin-bottom: 12px;">
           <span class="header-title">OUR PORTFOLIO</span>
         </div>
-        <h2 class="portfolio-main-title">Digital Experiences We’ve Brought to Life</h2>
+        <h2 class="portfolio-main-title">Digital Experiences Weâ€™ve Brought to Life</h2>
       </div>
 
       <!-- Portfolio Row with 10 Laptops (4 initially + 6 on toggle) -->
@@ -6408,7 +5666,7 @@
           <span class="header-title">OUR MILESTONE ACHIEVEMENT</span>
         </div>
         <h2 class="achievement-main-title">Full Website Delivered in Just <span>48 Hours.</span></h2>
-        <p class="achievement-sub">We designed, developed, and launched a complete end-to-end website for a client in under 48 hours — without compromising on quality, performance, or design.</p>
+        <p class="achievement-sub">We designed, developed, and launched a complete end-to-end website for a client in under 48 hours â€” without compromising on quality, performance, or design.</p>
       </div>
 
       <!-- 3 Stat Cards -->
@@ -6423,7 +5681,7 @@
             </svg>
           </div>
           <div class="achievement-stat-number" data-counter data-target="48">0</div>
-          <div class="achievement-stat-title">Hours — Strategy to Launch</div>
+          <div class="achievement-stat-title">Hours â€” Strategy to Launch</div>
           <div class="achievement-stat-desc">From first brief to a fully live website, delivered in record time.</div>
         </div>
 
@@ -6437,7 +5695,7 @@
           </div>
           <div class="achievement-stat-number" data-counter data-target="95" data-suffix="%">0%</div>
           <div class="achievement-stat-title">Client Approved</div>
-          <div class="achievement-stat-desc">Delivered exactly to brief — zero revisions, full satisfaction.</div>
+          <div class="achievement-stat-desc">Delivered exactly to brief â€” zero revisions, full satisfaction.</div>
         </div>
 
         <!-- Card 3: Live & Functional -->
@@ -6936,20 +6194,10 @@
         <!-- 5. WIX Partner -->
         <div class="partner-card">
           <div class="partner-logo-box">
-            <!-- Real Wix logo wordmark - black W-i-x with orange dot on i -->
-            <svg width="62" height="24" viewBox="0 0 310 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- W (bold rounded letterform) -->
-              <path d="M0 10 Q2 8 5 10 L22 65 L38 28 Q40 22 46 22 Q52 22 54 28 L70 65 L87 10 Q90 7 95 10 Q98 13 96 18 L73 92 Q71 98 64 98 Q57 98 55 92 L42 55 L29 92 Q27 98 20 98 Q13 98 11 92 L-1 18 Q-3 13 0 10Z" fill="#1A1A1A"/>
-              <!-- i dot (orange/gold) -->
-              <circle cx="130" cy="20" r="10" fill="#E8A838"/>
-              <!-- i stem -->
-              <rect x="122" y="38" width="16" height="60" rx="6" fill="#1A1A1A"/>
-              <!-- x -->
-              <path d="M165 38 L192 68 L165 98 L184 98 L200 76 L216 98 L235 98 L208 68 L235 38 L216 38 L200 60 L184 38Z" fill="#1A1A1A"/>
-            </svg>
+            <img src="./assets/logo/wix-studio.webp" alt="Wix Studio Logo" class="partner-wix-logo" style="max-width: 58px; max-height: 40px; width: auto; height: auto; object-fit: contain; display: block; transform: scale(1.28);">
           </div>
           <div class="partner-info">
-            <span class="partner-name">Wix</span>
+            <span class="partner-name">Wix Studio</span>
             <span class="partner-sub">Partner</span>
           </div>
         </div>
@@ -7112,7 +6360,7 @@
               <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.27 2.59 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
             </svg>
           </div>
-          <div class="rating-stars">★ ★ ★ ★ ★</div>
+          <div class="rating-stars">â˜… â˜… â˜… â˜… â˜…</div>
           <div class="rating-info"><span data-counter data-target="5.0" data-decimals="1">0.0</span> Rating on Google Reviews</div>
         </div>
       </div>
@@ -7130,7 +6378,7 @@
                   <div class="gr-slide-avatar av-1">HM</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">Hiral Master</div>
-                    <div class="gr-slide-sub">Dishant Ayurvedic · 1 review</div>
+                    <div class="gr-slide-sub">Dishant Ayurvedic Â· 1 review</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7146,7 +6394,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">7 months ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7155,9 +6403,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “Working with White Ink was a transformative experience for Dishant Ayurvedic. They successfully evolved our brand from a traditional B2B manufacturer into a vibrant B2C e-commerce presence with an intuitive website and seamless checkout. Their dedication is exceptional—often working past office hours to meet launch deadlines. We are truly grateful!”
+                â€œWorking with White Ink was a transformative experience for Dishant Ayurvedic. They successfully evolved our brand from a traditional B2B manufacturer into a vibrant B2C e-commerce presence with an intuitive website and seamless checkout. Their dedication is exceptionalâ€”often working past office hours to meet launch deadlines. We are truly grateful!â€
               </p>
             </div>
 
@@ -7168,7 +6416,7 @@
                   <div class="gr-slide-avatar av-2">KG</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">Karan Goswami</div>
-                    <div class="gr-sub">Web Developer · 3 reviews</div>
+                    <div class="gr-sub">Web Developer Â· 3 reviews</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7184,7 +6432,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">a year ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7193,9 +6441,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “Working with White Ink Studio has been an outstanding experience. As a web developer, I truly appreciate their creative strategy, clean frontend development, UI/UX aesthetics, and attention to detail. Their team delivers on time, communicates clearly, and consistently produces high-impact, fast-loading websites. Highly recommended!”
+                â€œWorking with White Ink Studio has been an outstanding experience. As a web developer, I truly appreciate their creative strategy, clean frontend development, UI/UX aesthetics, and attention to detail. Their team delivers on time, communicates clearly, and consistently produces high-impact, fast-loading websites. Highly recommended!â€
               </p>
             </div>
 
@@ -7206,7 +6454,7 @@
                   <div class="gr-slide-avatar av-3">HS</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">Dr. Harshil Shah</div>
-                    <div class="gr-sub">Orthopaedic Surgeon · drharshilshah.com</div>
+                    <div class="gr-sub">Orthopaedic Surgeon Â· drharshilshah.com</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7222,7 +6470,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">6 months ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7231,9 +6479,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “White Ink designed and developed our healthcare practice website. The user interface is clean, patient-friendly, and very easy to navigate on mobile devices. Appointment booking integration works flawlessly. The team was extremely receptive to our medical layout requirements and delivered on schedule.”
+                â€œWhite Ink designed and developed our healthcare practice website. The user interface is clean, patient-friendly, and very easy to navigate on mobile devices. Appointment booking integration works flawlessly. The team was extremely receptive to our medical layout requirements and delivered on schedule.â€
               </p>
             </div>
 
@@ -7244,7 +6492,7 @@
                   <div class="gr-slide-avatar av-4">HP</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">House of Pushpam</div>
-                    <div class="gr-sub">Pushpam Jewellers · houseofpushpam.com</div>
+                    <div class="gr-sub">Pushpam Jewellers Â· houseofpushpam.com</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7260,7 +6508,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">5 months ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7269,9 +6517,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “White Ink built our luxury e-commerce website with sheer elegance and precision. Showcasing fine jewellery online requires high visual fidelity, fast load times, and custom collection filtering. They delivered beyond our expectations. Our clients love the seamless, royal shopping experience.”
+                â€œWhite Ink built our luxury e-commerce website with sheer elegance and precision. Showcasing fine jewellery online requires high visual fidelity, fast load times, and custom collection filtering. They delivered beyond our expectations. Our clients love the seamless, royal shopping experience.â€
               </p>
             </div>
 
@@ -7282,7 +6530,7 @@
                   <div class="gr-slide-avatar av-5">VQ</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">Vioniq Skincare</div>
-                    <div class="gr-sub">D2C Beauty Brand · vioniq.in</div>
+                    <div class="gr-sub">D2C Beauty Brand Â· vioniq.in</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7298,7 +6546,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">4 months ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7307,9 +6555,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “We partnered with White Ink Studio for our D2C skincare Shopify store. From responsive mobile design, fast page load speeds, to a frictionless cart and checkout flow, they handled everything brilliantly. Our conversion rate increased significantly right after launch. Truly top-tier work!”
+                â€œWe partnered with White Ink Studio for our D2C skincare Shopify store. From responsive mobile design, fast page load speeds, to a frictionless cart and checkout flow, they handled everything brilliantly. Our conversion rate increased significantly right after launch. Truly top-tier work!â€
               </p>
             </div>
 
@@ -7320,7 +6568,7 @@
                   <div class="gr-slide-avatar av-6">DK</div>
                   <div class="gr-slide-meta">
                     <div class="gr-slide-name">Devikrupa Kidswear</div>
-                    <div class="gr-sub">Kidswear Brand · devikrupakidswear.com</div>
+                    <div class="gr-sub">Kidswear Brand Â· devikrupakidswear.com</div>
                   </div>
                 </div>
                 <div class="gr-slide-google-badge">
@@ -7336,7 +6584,7 @@
 
               <div class="gr-slide-rating-bar">
                 <div class="gr-slide-stars-wrap">
-                  <span class="gr-slide-stars">★★★★★</span>
+                  <span class="gr-slide-stars">â˜…â˜…â˜…â˜…â˜…</span>
                   <span class="gr-slide-time">3 months ago</span>
                 </div>
                 <div class="gr-slide-tag">
@@ -7345,9 +6593,9 @@
                 </div>
               </div>
 
-              <div class="gr-slide-quote-icon">“</div>
+              <div class="gr-slide-quote-icon">â€œ</div>
               <p class="gr-slide-text">
-                “White Ink developed our complete kidswear e-commerce website with great attention to user experience, catalogue hierarchy, and mobile responsiveness. Their team understood our retail requirements and delivered a vibrant, super-fast e-commerce store with zero hassle. Excellent support throughout!”
+                â€œWhite Ink developed our complete kidswear e-commerce website with great attention to user experience, catalogue hierarchy, and mobile responsiveness. Their team understood our retail requirements and delivered a vibrant, super-fast e-commerce store with zero hassle. Excellent support throughout!â€
               </p>
             </div>
 
@@ -7421,7 +6669,7 @@
             <div class="pricing-plan-name">STARTER WEB</div>
             <div class="pricing-plan-desc">Essential launch website for startups, personal portfolios & single services.</div>
             <div class="pricing-price-wrap">
-              <span class="pricing-curr">₹</span>
+              <span class="pricing-curr">â‚¹</span>
               <span class="pricing-amount">14,999</span>
               <span class="pricing-period">/one-time</span>
             </div>
@@ -7467,7 +6715,7 @@
             <div class="pricing-plan-name">GROWTH BUSINESS</div>
             <div class="pricing-plan-desc">Complete corporate presence engineered to build high trust and generate leads.</div>
             <div class="pricing-price-wrap">
-              <span class="pricing-curr">₹</span>
+              <span class="pricing-curr">â‚¹</span>
               <span class="pricing-amount">29,999</span>
               <span class="pricing-period">/one-time</span>
             </div>
@@ -7512,7 +6760,7 @@
             <div class="pricing-plan-name">E-COMMERCE PRO</div>
             <div class="pricing-plan-desc">High-conversion online storefront optimized for seamless checkouts and repeat sales.</div>
             <div class="pricing-price-wrap">
-              <span class="pricing-curr">₹</span>
+              <span class="pricing-curr">â‚¹</span>
               <span class="pricing-amount">49,999</span>
               <span class="pricing-period">/one-time</span>
             </div>
@@ -7838,7 +7086,7 @@
       <!-- Bottom Bar: Copyright & Legal -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright">
-          © 2026 White Ink Design Studio. All rights reserved.
+          Â© 2026 White Ink Design Studio. All rights reserved.
         </div>
         <div class="footer-legal-links">
           <a href="#">Privacy Policy</a>
@@ -7878,7 +7126,7 @@
 
     <!-- Header Content -->
     <div class="floating-quote-header">
-      <h3 id="floatingQuoteTitle" class="floating-quote-title">Let’s Build Your Website.</h3>
+      <h3 id="floatingQuoteTitle" class="floating-quote-title">Letâ€™s Build Your Website.</h3>
       <p class="floating-quote-desc">
         Tell us about your business and website requirements. Our team will get in touch with a customised solution.
       </p>
@@ -7968,9 +7216,9 @@
       <div class="cta-select-group">
         <select id="quoteBudget" class="cta-select" required>
           <option value="" disabled selected>Estimated Budget</option>
-          <option value="500-1500">$500 – $1,500</option>
-          <option value="1500-3000">$1,500 – $3,000</option>
-          <option value="3000-5000">$3,000 – $5,000</option>
+          <option value="500-1500">$500 â€“ $1,500</option>
+          <option value="1500-3000">$1,500 â€“ $3,000</option>
+          <option value="3000-5000">$3,000 â€“ $5,000</option>
           <option value="5000+">$5,000+</option>
         </select>
         <span class="cta-select-arrow">
@@ -8031,7 +7279,7 @@
     const quoteForm = document.getElementById('floatingQuoteForm');
 
     // =========================================================================
-    // ⚠️ WHATSAPP PHONE NUMBER SETTING
+    // âš ï¸ WHATSAPP PHONE NUMBER SETTING
     // Apne WhatsApp number ko yaha dalein: Country Code ke sath, bina '+' ya space ke
     // Example (India): 919660212939
     // =========================================================================
@@ -8371,7 +7619,7 @@ Could you please share pricing and project details? Thank you!`;
             name: "Dr. Reckeweg",
             url: "https://www.reckeweg-india.com/",
             logoImg: "./assets/logo/reckeweg-india.webp",
-            logoHtml: '<div class="logo-inner logo-reckeweg"><span>Reckeweg<sup>®</sup></span><span class="reckeweg-sub">GERMANY</span></div>'
+            logoHtml: '<div class="logo-inner logo-reckeweg"><span>Reckeweg<sup>Â®</sup></span><span class="reckeweg-sub">GERMANY</span></div>'
           },
           {
             name: "Speciality Homeopathy",
@@ -8380,7 +7628,7 @@ Could you please share pricing and project details? Thank you!`;
             logoHtml: '<div class="logo-inner logo-speciality"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9c0 5-9 11-9 11S3 16 3 11a9 9 0 0 1 9-9Z"/><path d="M12 7v8M8 11h8"/></svg><div class="speciality-text"><span class="speciality-title">SPECIALITY</span><span class="speciality-sub">HOMEOPATHY</span></div></div>'
           },
           {
-            name: "Dr. Ketan Shah – Happy Homeopathy",
+            name: "Dr. Ketan Shah â€“ Happy Homeopathy",
             url: "https://www.specialityhomeopathy.com/",
             logoHtml: '<div class="logo-inner logo-neutral-placeholder"><span class="logo-neutral-title" style="color:#c2410c;">Dr. Ketan Shah</span><span class="logo-neutral-sub" style="color:#16a34a;">HAPPY HOMEOPATHY</span></div>'
           },
@@ -8399,8 +7647,8 @@ Could you please share pricing and project details? Thank you!`;
           {
             name: "Hevert India",
             url: "https://hevertindia.com/",
-            logoImg: "./assets/logo/hevert.webp",
-            logoHtml: '<div class="logo-inner logo-hevert"><span class="hevert-brand">HEVERT<sup>®</sup></span><span class="hevert-sub">India</span></div>'
+            logoImg: "./assets/logo/hevert.png",
+            logoHtml: '<div class="logo-inner logo-hevert"><span class="hevert-brand">HEVERT<sup>Â®</sup></span><span class="hevert-sub">India</span></div>'
           },
           {
             name: "Felke Remedies",
@@ -8412,7 +7660,7 @@ Could you please share pricing and project details? Thank you!`;
             name: "Dishant Ayurvedic",
             url: "https://www.dishantayurvedic.com/",
             logoImg: "./assets/logo/dishant.webp",
-            logoHtml: '<div class="logo-inner logo-dishant"><span class="dishant-title">Dishant<sup>®</sup></span><span class="dishant-sub">AYURVEDIC</span></div>'
+            logoHtml: '<div class="logo-inner logo-dishant"><span class="dishant-title">Dishant<sup>Â®</sup></span><span class="dishant-sub">AYURVEDIC</span></div>'
           },
           {
             name: "Happy Wellness Hub",
@@ -8453,7 +7701,7 @@ Could you please share pricing and project details? Thank you!`;
             name: "Wand Fragrance",
             url: "https://wandfragrance.com",
             logoImg: "./assets/logo/wandfragrance.webp",
-            logoHtml: '<div class="logo-inner logo-wand"><span class="wand-title">WAND<span class="wand-tm">™</span></span><span class="wand-sub">LUXURY PERFUME</span></div>'
+            logoHtml: '<div class="logo-inner logo-wand"><span class="wand-title">WAND<span class="wand-tm">â„¢</span></span><span class="wand-sub">LUXURY PERFUME</span></div>'
           },
           {
             name: "Devikrupa Kidswear",
@@ -8752,7 +8000,7 @@ Could you please share pricing and project details? Thank you!`;
           if (totalPages > 1) {
             const startNum = startIdx + 1;
             const endNum = Math.min(startIdx + LOGOS_PER_PAGE, totalCompanies);
-            pageIndicatorEl.textContent = `Showing ${startNum}–${endNum} of ${totalCompanies} Companies (Page ${currentPageIndex + 1} of ${totalPages})`;
+            pageIndicatorEl.textContent = `Showing ${startNum}â€“${endNum} of ${totalCompanies} Companies (Page ${currentPageIndex + 1} of ${totalPages})`;
           } else {
             pageIndicatorEl.textContent = `${totalCompanies} ${totalCompanies === 1 ? 'Company' : 'Companies'}`;
           }
