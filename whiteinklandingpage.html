@@ -743,12 +743,13 @@
     }
 
     .section-lined-header .header-title {
-      font-size: 13.5px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      text-transform: none;
       color: #11141a;
-      white-space: nowrap;
+      white-space: normal;
+      line-height: 1.25;
       text-align: center;
     }
 
@@ -1070,10 +1071,11 @@
 
     .impact-title {
       text-align: center;
-      font-size: 13.5px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      text-transform: none;
+      line-height: 1.25;
       color: #11141a;
       margin-bottom: 34px;
     }
@@ -4646,14 +4648,14 @@
       .section-lined-header .header-title {
         white-space: normal !important;
         text-align: center !important;
-        font-size: 15.5px !important;
-        letter-spacing: 1.4px !important;
+        font-size: 22px !important;
+        letter-spacing: -0.3px !important;
         font-weight: 800 !important;
-        text-transform: uppercase !important;
+        text-transform: none !important;
         color: #11141a !important;
         flex-shrink: 0 !important;
         display: block !important;
-        line-height: 1.35 !important;
+        line-height: 1.28 !important;
       }
 
       .tech-card-wrapper {
@@ -4779,14 +4781,14 @@
       .section-lined-header .header-title {
         white-space: normal !important;
         text-align: center !important;
-        font-size: 15.5px !important;
-        letter-spacing: 1.4px !important;
+        font-size: 22px !important;
+        letter-spacing: -0.3px !important;
         font-weight: 800 !important;
-        text-transform: uppercase !important;
+        text-transform: none !important;
         color: #11141a !important;
         flex-shrink: 0 !important;
         display: block !important;
-        line-height: 1.35 !important;
+        line-height: 1.28 !important;
       }
 
       /* Built On The Right Technology - Phone Grid & Logos Fully Visible */
@@ -5024,9 +5026,7 @@
        Tier 2 (Normal / Body / Subtitles / Labels): 13px (Clean, Readable)
        ========================================================================== */
     @media (max-width: 768px) {
-      /* TIER 1: ALL SECTION HEADINGS & CARD HEADINGS (15.5px) */
-      .section-lined-header .header-title,
-      .impact-title,
+      /* TIER 1: ALL CARD TITLES (15.5px) */
       .service-title,
       .tech-name,
       .process-name,
@@ -5048,15 +5048,17 @@
         line-height: 1.35 !important;
       }
 
-      /* Specific adjustments for uppercase section titles */
+      /* Section headings on mobile */
       .section-lined-header .header-title,
       .impact-title {
+        font-size: 22px !important;
         font-weight: 800 !important;
-        letter-spacing: 1.4px !important;
-        text-transform: uppercase !important;
+        letter-spacing: -0.3px !important;
+        text-transform: none !important;
         white-space: normal !important;
         text-align: center !important;
         display: block !important;
+        line-height: 1.28 !important;
       }
 
       /* TIER 2: ALL NORMAL / BODY TEXT, SUBTITLES, DESCRIPTIONS & LABELS (13px) */
@@ -5366,7 +5368,7 @@
       <!-- Lined Header & Title -->
       <div class="services-heading-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">OUR SERVICES</span>
+          <span class="header-title">Our Services</span>
         </div>
       </div>
 
@@ -5507,7 +5509,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">BUILT ON THE RIGHT TECHNOLOGY</span>
+        <span class="header-title">Built on the Right Technology</span>
       </div>
 
       <!-- Core Platforms Bar Card -->
@@ -5632,7 +5634,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">INDUSTRIES WE BUILD FOR</span>
+        <span class="header-title">Industries We Build For</span>
       </div>
 
       <!-- 7 Industries Card with Vertical Dividers -->
@@ -5689,7 +5691,7 @@
       <!-- Section Heading & Introduction -->
       <div class="trusted-header-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">OUR PARTNERS</span>
+          <span class="header-title">Our Partners</span>
         </div>
         <p class="trusted-sub-text">We've partnered with businesses across diverse industries, delivering impactful digital experiences and solutions.</p>
       </div>
@@ -5748,7 +5750,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">OUR WEBSITE<br class="mobile-only-br"> DEVELOPMENT PROCESS</span>
+        <span class="header-title">Our Website<br class="mobile-only-br"> Development Process</span>
       </div>
 
       <!-- Process 6 Steps Row -->
@@ -5886,7 +5888,7 @@
       <!-- Lined Header & Title -->
       <div class="portfolio-heading-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">OUR PORTFOLIO</span>
+          <span class="header-title">Our Portfolio</span>
         </div>
       </div>
 
@@ -6082,7 +6084,7 @@
       <!-- Centered Heading -->
       <div class="achievement-heading-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">OUR MILESTONE ACHIEVEMENT</span>
+          <span class="header-title">Our Milestone Achievement</span>
         </div>
         <p class="achievement-sub">We designed, developed, and launched a complete end-to-end website for a client in under 48 hours — without compromising on quality, performance, or design.</p>
       </div>
@@ -6123,7 +6125,7 @@
     <div class="container">
       <div class="impact-card">
         
-        <div class="impact-title">OUR IMPACT IN NUMBERS</div>
+        <div class="impact-title">Our Impact in Numbers</div>
 
         <div class="impact-grid">
           
@@ -6166,7 +6168,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">WHY CHOOSE WHITE INK?</span>
+        <span class="header-title">Why Choose White Ink?</span>
       </div>
 
       <!-- 8 Value Propositions Grid -->
@@ -6276,7 +6278,7 @@
       <!-- Eyebrow & Title -->
       <div class="cert-heading-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">RECOGNISED EXPERTISE</span>
+          <span class="header-title">Recognised Expertise</span>
         </div>
       </div>
 
@@ -6487,7 +6489,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">OFFICIAL PARTNERS</span>
+        <span class="header-title">Official Partners</span>
       </div>
 
       <!-- Partner Cards Grid -->
@@ -6599,7 +6601,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">CLIENT REVIEWS</span>
+        <span class="header-title">Client Reviews</span>
       </div>
 
       <!-- Google Rating Summary Pill -->
@@ -6894,7 +6896,7 @@
 
       <!- - Section Lined Header - ->
       <div class="section-lined-header">
-        <span class="header-title">OUR PRICING PLANS</span>
+        <span class="header-title">Our Pricing Plans</span>
       </div>
 
       <!- - Pricing Heading & Top Contact Banner - ->
@@ -7110,7 +7112,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">THE PEOPLE BEHIND WHITE INK</span>
+        <span class="header-title">The People Behind White Ink</span>
       </div>
 
       <!-- Team Members Grid -->
@@ -7150,7 +7152,7 @@
       
       <!-- Lined Header -->
       <div class="section-lined-header">
-        <span class="header-title">FREQUENTLY ASKED QUESTIONS</span>
+        <span class="header-title">Frequently Asked Questions</span>
       </div>
 
       <!-- FAQ Accordion List -->
@@ -8101,6 +8103,7 @@ Could you please share pricing and project details? Thank you!`;
           {
             name: "Krupam Infotech",
             url: "",
+            logoImg: "./assets/logo/krupam.webp",
             logoHtml: '<div class="logo-inner logo-neutral-placeholder"><span class="logo-neutral-title" style="color:#2563eb; font-weight:800;">KRUPAM</span><span class="logo-neutral-sub">INFOTECH</span></div>'
           }
         ]
