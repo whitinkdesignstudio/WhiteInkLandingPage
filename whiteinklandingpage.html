@@ -1790,10 +1790,10 @@
     }
 
     .process-circle {
-      width: 66px;
-      height: 66px;
+      width: 78px;
+      height: 78px;
       border-radius: 50%;
-      background: #f5f1eb;
+      background: #f3eee7;
       border: 1.5px solid rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: center;
@@ -1802,13 +1802,21 @@
       margin-bottom: 14px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.035);
       transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .process-circle img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      display: block;
     }
 
     .process-step-item:hover .process-circle {
       transform: translateY(-4px) scale(1.05);
-      background: #ffffff;
+      background: #f3eee7;
       border-color: #c29438;
-      box-shadow: 0 10px 24px rgba(194, 148, 56, 0.12);
+      box-shadow: 0 10px 24px rgba(194, 148, 56, 0.14);
       color: #c29438;
     }
 
@@ -5167,10 +5175,10 @@
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.025) !important;
       }
       .process-circle {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 12px !important;
-        background: rgba(194, 148, 56, 0.08) !important;
+        width: 54px !important;
+        height: 54px !important;
+        border-radius: 50% !important;
+        background: #f3eee7 !important;
         border: 1.5px solid rgba(194, 148, 56, 0.25) !important;
         color: #c29438 !important;
         margin-bottom: 0 !important;
@@ -5179,10 +5187,14 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        overflow: hidden !important;
       }
-      .process-circle svg {
-        width: 20px !important;
-        height: 20px !important;
+      .process-circle svg,
+      .process-circle img {
+        width: 38px !important;
+        height: 38px !important;
+        object-fit: contain !important;
+        display: block !important;
       }
       .process-number {
         font-size: 11px !important;
@@ -5666,7 +5678,6 @@
           <div class="trusted-showcase-topbar">
             <div class="trusted-topbar-info">
               <span class="trusted-active-category-title" id="trustedActiveCatTitle">Healthcare &amp; Homeopathy</span>
-              <span class="trusted-page-indicator" id="trustedPageIndicator">Page 1 of 3 (15 Companies)</span>
             </div>
             <div class="trusted-nav-arrows">
               <button type="button" class="trusted-arrow-btn" id="trustedPrevBtn" aria-label="Previous logos" title="Previous page" disabled>
@@ -5712,10 +5723,7 @@
         <!-- Step 01: Discovery & Strategy -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
+            <img src="./assets/process/01-discovery.webp" alt="Discovery &amp; Strategy" loading="lazy">
           </div>
           <div class="process-number">01</div>
           <div class="process-name">Discovery &<br>Strategy</div>
@@ -5732,11 +5740,7 @@
         <!-- Step 02: Planning & Wireframing -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-              <line x1="3" y1="9" x2="21" y2="9"></line>
-              <line x1="9" y1="21" x2="9" y2="9"></line>
-            </svg>
+            <img src="./assets/process/02-planning.webp" alt="Planning &amp; Wireframing" loading="lazy">
           </div>
           <div class="process-number">02</div>
           <div class="process-name">Planning &<br>Wireframing</div>
@@ -5753,12 +5757,7 @@
         <!-- Step 03: UI/UX Design -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-              <path d="M2 2l7.586 7.586"></path>
-              <circle cx="11" cy="11" r="2"></circle>
-            </svg>
+            <img src="./assets/process/03-design.webp" alt="UI/UX Design" loading="lazy">
           </div>
           <div class="process-number">03</div>
           <div class="process-name">UI/UX<br>Design</div>
@@ -5775,10 +5774,7 @@
         <!-- Step 04: Development -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
+            <img src="./assets/process/04-development.webp" alt="Development" loading="lazy">
           </div>
           <div class="process-number">04</div>
           <div class="process-name">Development</div>
@@ -5795,10 +5791,7 @@
         <!-- Step 05: Testing & Optimisation -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="16 10 11 15 8 12"></polyline>
-            </svg>
+            <img src="./assets/process/05-testing.webp" alt="Testing &amp; Optimisation" loading="lazy">
           </div>
           <div class="process-number">05</div>
           <div class="process-name">Testing &<br>Optimisation</div>
@@ -5815,12 +5808,7 @@
         <!-- Step 06: Launch & Support -->
         <div class="process-step-item">
           <div class="process-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-              <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-            </svg>
+            <img src="./assets/process/06-launch.webp" alt="Launch &amp; Support" loading="lazy">
           </div>
           <div class="process-number">06</div>
           <div class="process-name">Launch &<br>Support</div>
@@ -8091,7 +8079,6 @@ Could you please share pricing and project details? Thank you!`;
       const navListEl = document.getElementById('trustedNavList');
       const logosGridEl = document.getElementById('trustedLogosGrid');
       const activeTitleEl = document.getElementById('trustedActiveCatTitle');
-      const pageIndicatorEl = document.getElementById('trustedPageIndicator');
       const prevBtn = document.getElementById('trustedPrevBtn');
       const nextBtn = document.getElementById('trustedNextBtn');
 
@@ -8203,16 +8190,6 @@ Could you please share pricing and project details? Thank you!`;
         // Update Topbar Info
         if (activeTitleEl) {
           activeTitleEl.textContent = cat.name;
-        }
-
-        if (pageIndicatorEl) {
-          if (totalPages > 1) {
-            const startNum = startIdx + 1;
-            const endNum = Math.min(startIdx + LOGOS_PER_PAGE, totalCompanies);
-            pageIndicatorEl.textContent = `Showing ${startNum}–${endNum} of ${totalCompanies} Companies (Page ${currentPageIndex + 1} of ${totalPages})`;
-          } else {
-            pageIndicatorEl.textContent = `${totalCompanies} ${totalCompanies === 1 ? 'Company' : 'Companies'}`;
-          }
         }
 
         // Update Arrow states
