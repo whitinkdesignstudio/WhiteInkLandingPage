@@ -4079,9 +4079,9 @@
        FOOTER
        ------------------------------------------- */
     .site-footer {
-      background: #0d0f12;
+      background: #080808;
       color: #9ca3af;
-      padding: 60px 0 32px;
+      padding: 64px 0 28px;
       position: relative;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-family: inherit;
@@ -4089,22 +4089,24 @@
 
     .footer-main-row {
       display: grid;
-      grid-template-columns: 240px 1fr 1fr 1fr 340px;
-      gap: 32px;
-      align-items: start;
-      padding-bottom: 50px;
+      grid-template-columns: 0.9fr 1.15fr 1.65fr;
+      gap: 0;
+      align-items: stretch;
+      padding-bottom: 52px;
     }
 
     /* Column 1: Brand */
     .footer-brand-col {
-      padding-right: 28px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 36px 12px 0;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .footer-logo {
       display: inline-block;
       text-decoration: none;
-      margin-bottom: 14px;
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     }
 
@@ -4114,182 +4116,209 @@
     }
 
     .footer-logo-img {
-      height: 58px;
+      height: 175px;
       width: auto;
-      max-height: 62px;
+      max-height: 190px;
       object-fit: contain;
       display: block;
       filter: brightness(1.06) contrast(1.04);
     }
 
-    .footer-tagline {
-      font-size: 13px;
-      font-weight: 700;
-      color: #d1d5db;
-      letter-spacing: 0.1px;
-      line-height: 1.5;
-    }
-
-    /* Link Columns */
-    .footer-col-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 18px;
-      letter-spacing: -0.2px;
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    /* Column 2: Contact Us */
+    .footer-contact-col {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      justify-content: center;
+      padding: 12px 44px;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    .footer-links a {
-      color: #9ca3af;
-      text-decoration: none;
-      font-size: 13px;
+    .footer-serif-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 25px;
       font-weight: 500;
-      transition: color 0.2s ease, transform 0.2s ease;
-      display: inline-block;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
     }
 
-    .footer-links a:hover {
-      color: #ffffff;
+    .footer-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    a.footer-contact-item:hover {
+      color: #deb877;
       transform: translateX(2px);
     }
 
-    /* Column 4: Company with right border */
-    .footer-company-col {
-      padding-right: 28px;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Column 5: Stay in the loop */
-    .footer-newsletter-col {
-      padding-left: 4px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      align-items: center;
-      background: #181a1f;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 9999px;
-      padding: 4px 4px 4px 18px;
-      max-width: 330px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .newsletter-form:focus-within {
-      border-color: #deb877;
-      box-shadow: 0 0 0 3px rgba(222, 184, 119, 0.18);
-    }
-
-    .newsletter-input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #ffffff;
-      font-size: 13px;
-      font-family: inherit;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .newsletter-input::placeholder {
-      color: #6b7280;
-    }
-
-    .newsletter-btn {
-      width: 44px;
-      height: 38px;
-      background: #deb877;
-      color: #111215;
-      border: none;
-      border-radius: 9999px;
-      display: flex;
+    .footer-contact-icon-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(194, 148, 56, 0.65);
+      color: #d4af5f;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
       flex-shrink: 0;
     }
 
-    .newsletter-btn:hover {
-      background: #e8c688;
-      transform: translateX(2px);
+    /* Column 3: Let's Build Your Website */
+    .footer-quote-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 0 12px 44px;
     }
 
-    .footer-social-row {
+    .footer-quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+    }
+
+    .footer-field-wrap {
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-top: 22px;
     }
 
-    .footer-social-link {
-      color: #9ca3af;
+    .footer-field-icon {
+      position: absolute;
+      left: 13px;
+      color: #4b5563;
       display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .footer-input {
+      width: 100%;
+      height: 42px;
+      background: #ffffff;
+      color: #181410;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      padding: 0 14px 0 38px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .footer-input::placeholder {
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .footer-input:focus,
+    .footer-select:focus {
+      border-color: #c29438;
+      box-shadow: 0 0 0 3px rgba(194, 148, 56, 0.22);
+    }
+
+    .footer-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-select {
+      width: 100%;
+      height: 42px;
+      background: #ffffff;
+      color: #374151;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      padding: 0 34px 0 14px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .footer-select-arrow {
+      position: absolute;
+      right: 13px;
+      color: #374151;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .footer-whatsapp-btn {
+      width: 100%;
+      height: 42px;
+      background: #0d0d0d;
+      color: #ffffff;
+      border: 1px solid #c29438;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
-      text-decoration: none;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
 
-    .footer-social-link:hover {
-      color: #ffffff;
-      transform: translateY(-2px);
+    .footer-whatsapp-btn:hover {
+      background: #c29438;
+      color: #0d0d0d;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(194, 148, 56, 0.25);
     }
 
     /* Bottom Bar */
     .footer-bottom-bar {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 22px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       font-size: 12.5px;
-      color: #6b7280;
-    }
-
-    .footer-legal-links {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .footer-legal-links a {
-      color: #9ca3af;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-legal-links a:hover {
-      color: #ffffff;
-    }
-
-    .footer-legal-links span {
-      color: rgba(255, 255, 255, 0.2);
+      color: #8b929e;
     }
 
     /* Footer Responsive */
-    @media (max-width: 1200px) {
+    @media (max-width: 1050px) {
       .footer-main-row {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 36px 24px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
       }
-      .footer-brand-col,
-      .footer-company-col {
+      .footer-brand-col {
+        justify-content: flex-start;
+        padding: 0;
         border-right: none;
-        padding-right: 0;
       }
-      .footer-newsletter-col {
-        grid-column: span 3;
-        margin-top: 6px;
+      .footer-contact-col {
+        padding: 0;
+        border-right: none;
+      }
+      .footer-quote-col {
+        grid-column: span 2;
+        padding: 28px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
 
@@ -4298,12 +4327,14 @@
         grid-template-columns: 1fr;
         gap: 28px;
       }
-      .footer-newsletter-col {
+      .footer-quote-col {
         grid-column: span 1;
       }
+      .footer-quote-grid {
+        grid-template-columns: 1fr;
+      }
       .footer-bottom-bar {
-        flex-direction: column;
-        gap: 14px;
+        justify-content: center;
         text-align: center;
       }
     }
@@ -5333,11 +5364,11 @@
 
       <!-- Phone contact & CTA Quote button -->
       <div class="nav-right-actions">
-        <a href="tel:+919876543210" class="nav-phone-link" title="Call White Ink Design Studio">
+        <a href="tel:+447393071302" class="nav-phone-link" title="Call White Ink Design Studio">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
-          <span>+918320763694</span>
+          <span>+44 7393071302</span>
         </a>
         <a href="#floatingQuoteBox" onclick="const t = document.getElementById('floatingQuoteTrigger'); if(t) t.click(); return false;" class="btn-quote">
           <span>Get a Website Quote</span>
@@ -5381,257 +5412,6 @@
 
 
   <!-- -------------------------------------------
-       SECTION 4: OUR SERVICES
-       ------------------------------------------- -->
-  <section class="services-section" id="services">
-    <div class="container">
-      
-      <!-- Lined Header & Title -->
-      <div class="services-heading-wrap">
-        <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">Our Services</span>
-        </div>
-      </div>
-
-      <!-- 6 Services Cards Grid -->
-      <div class="services-grid">
-
-        <!-- 1. Business Website -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/business-website.webp" alt="Business Website" loading="lazy">
-          </div>
-          <div class="service-title">Business<br>Website</div>
-        </div>
-
-        <!-- 2. E-commerce Website -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/ecommerce-website.webp" alt="E-commerce Website" loading="lazy">
-          </div>
-          <div class="service-title">E-commerce<br>Website</div>
-        </div>
-
-        <!-- 3. Landing Page -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/landing-page.webp" alt="Landing Page" loading="lazy">
-          </div>
-          <div class="service-title">Landing<br>Page</div>
-        </div>
-
-        <!-- 6. UI/UX Design -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/ui-ux-design.webp" alt="UI/UX Design" loading="lazy">
-          </div>
-          <div class="service-title">UI/UX<br>Design</div>
-        </div>
-
-        <!-- 7. Website Redesign -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/website-redesign.webp" alt="Website Redesign" loading="lazy">
-          </div>
-          <div class="service-title">Website<br>Redesign</div>
-        </div>
-
-        <!-- 8. SEO & Ranking -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <img src="./assets/services/seo-ranking.webp" alt="SEO &amp; Ranking" loading="lazy">
-          </div>
-          <div class="service-title">SEO &amp;<br>Ranking</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
-       SECTION 8: BUILT ON THE RIGHT TECHNOLOGY
-       ------------------------------------------- -->
-  <section class="tech-section">
-    <div class="container">
-      
-      <!-- Lined Header -->
-      <div class="section-lined-header">
-        <span class="header-title">Built on the Right Technology</span>
-      </div>
-
-      <!-- Core Platforms Bar Card -->
-      <div class="tech-card-wrapper">
-        <div class="tech-grid">
-
-          <!-- 1. Shopify (official bag icon) -->
-          <div class="tech-item">
-            <svg width="28" height="32" viewBox="0 0 109 124" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M95.5 23.5c-.1-.7-.7-1.1-1.2-1.1-.5 0-9.3.2-9.3.2s-6.2-6.1-6.8-6.7c-.6-.6-1.9-.4-2.4-.3-.1 0-1.3.4-3.3 1C70.3 11.5 67 7 61.2 7c-.2 0-.3 0-.5.1C59.4 5.4 57.7 4.5 56.2 4.5c-11.5.1-17 14.4-18.7 21.7-4.5 1.4-7.7 2.4-8.1 2.5-2.5.8-2.6.8-2.9 3.2C26.2 33.9 16 113.5 16 113.5l67.5 11.5 25.5-6.5S95.6 24.2 95.5 23.5zM72.5 17.8c-1.6.5-3.4 1-5.3 1.6v-1.2c0-3.6-.5-6.5-1.3-8.8 3.2.4 5.3 4.1 6.6 8.4zM56.5 9.8c.9 2.2 1.5 5.4 1.5 9.7v.6c-3.6 1.1-7.5 2.3-11.4 3.5 2.2-8.4 6.3-12.5 9.9-13.8zM55.8 5.5c.6 0 1.2.2 1.8.6-4.5 2.1-9.3 7.5-11.3 18.2l-8.5 2.6C39.7 18.5 44.9 5.5 55.8 5.5z" fill="#95BF47"/>
-              <path d="M94.3 22.4c-.5 0-9.3.2-9.3.2s-6.2-6.1-6.8-6.7c-.2-.2-.5-.3-.8-.4l-4.2 85.8 25.5-6.5S95.6 24.2 95.5 23.5c-.1-.7-.7-1.1-1.2-1.1z" fill="#5E8E3E"/>
-              <path d="M61.2 42.5l-3.1 9.3s-2.8-1.5-6.2-1.5c-5 0-5.3 3.1-5.3 3.9 0 4.3 11.2 5.9 11.2 15.9 0 7.9-5 13-11.7 13-8.1 0-12.2-5-12.2-5l2.2-7.2s4.2 3.6 7.8 3.6c2.3 0 3.3-1.8 3.3-3.2 0-5.6-9.2-5.8-9.2-15 0-7.7 5.5-15.2 16.7-15.2 4.3 0 6.5 1.4 6.5 1.4z" fill="white"/>
-            </svg>
-            <span class="tech-name" style="font-weight:800;text-transform:lowercase;">shopify</span>
-          </div>
-
-          <!-- 2. WordPress (official W circle logo) -->
-          <div class="tech-item">
-            <svg width="28" height="28" viewBox="0 0 122.52 122.52" xmlns="http://www.w3.org/2000/svg">
-              <g fill="#21759b">
-                <path d="M8.708 61.26c0 20.802 12.089 38.779 29.619 47.298L13.258 39.872a52.354 52.354 0 0 0-4.55 21.388zM96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501L48.2 93.547l11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989zM61.262 65.491l-15.764 45.793a52.33 52.33 0 0 0 14.486 2.046 52.4 52.4 0 0 0 16.589-2.696 4.578 4.578 0 0 1-.374-.716L61.262 65.491zM107.376 36.046a41.07 41.07 0 0 1 .36 5.453c0 5.328-.993 11.318-3.996 18.81l-16.053 46.422c15.624-9.111 26.133-26.038 26.133-45.471a52.267 52.267 0 0 0-6.444-25.214z"/>
-                <path d="M61.262 0C27.483 0 0 27.481 0 61.26c0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263C122.527 27.481 95.04 0 61.262 0zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/>
-              </g>
-            </svg>
-            <span class="tech-name">WordPress</span>
-          </div>
-
-          <!-- 3. Wix Studio -->
-          <div class="tech-item">
-            <img src="./assets/logo/wix-studio.webp" alt="Wix Studio Logo" class="tech-wix-logo" style="max-height: 42px; max-width: 52px; width: auto; height: auto; object-fit: contain; display: block; transform: scale(1.25);">
-            <span class="tech-name">Wix Studio</span>
-          </div>
-
-          <!-- 4. Webflow (2023 rebrand — bold blue W mark) -->
-          <div class="tech-item">
-            <svg width="38" height="24" viewBox="0 0 1080 674" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#146EF5" fill-rule="evenodd" d="M1080 0 735.386 673.684H411.695l144.221-279.203h-6.471C430.464 548.934 252.942 650.61-.0005 673.684v-275.34s161.8135-9.557 256.9385-109.568H-.0005V.0053H288.771V237.515l6.481-.026L413.254.0053h218.39V236.009l6.482-.01L760.555 0H1080Z" clip-rule="evenodd"/>
-            </svg>
-            <span class="tech-name">Webflow</span>
-          </div>
-
-          <!-- 5. React (official blue atom logo) -->
-          <div class="tech-item">
-            <svg width="30" height="28" viewBox="0 0 841.9 595.3" xmlns="http://www.w3.org/2000/svg">
-              <g fill="#61DAFB">
-                <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16.1-13 24.1-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/>
-                <circle cx="420.9" cy="296.5" r="45.7"/>
-              </g>
-            </svg>
-            <span class="tech-name" style="color:#61DAFB;">React</span>
-          </div>
-
-          <!-- 6. Next.js (black N logo) -->
-          <div class="tech-item">
-            <svg width="28" height="28" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-              <mask id="mask-nextjs" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
-                <circle cx="90" cy="90" r="90" fill="black"/>
-              </mask>
-              <g mask="url(#mask-nextjs)">
-                <circle cx="90" cy="90" r="90" fill="black"/>
-                <path d="M149.508 157.52L69.142 54H54V125.97H66.1097V69.3348L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z" fill="url(#grad-nextjs)"/>
-                <rect x="115" y="54" width="12" height="72" fill="url(#grad2-nextjs)"/>
-              </g>
-              <defs>
-                <linearGradient id="grad-nextjs" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white"/>
-                  <stop offset="1" stop-color="white" stop-opacity="0"/>
-                </linearGradient>
-                <linearGradient id="grad2-nextjs" x1="115" y1="54" x2="115.221" y2="106.5" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white"/>
-                  <stop offset="1" stop-color="white" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <span class="tech-name">Next.js</span>
-          </div>
-
-          <!-- 7. HTML5 (official orange shield logo) -->
-          <div class="tech-item">
-            <svg width="24" height="28" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-              <path d="M108.4 0h23v22.8h21.2V0h23v69h-23V46h-21.2v23h-23V0zM206 23h-20.3V0h63.7v23H229v46h-23V23zM256.5 0h24.1l14.8 24.3L310.2 0h24.1v69h-23V34.8l-15.9 24.6h-.4l-15.9-24.6V69h-22.6V0zM348.7 0h23v46.2h32.6V69h-55.6V0z" fill="#E34F26"/>
-              <path d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512z" fill="#E44D26"/>
-              <path d="M256 480.5V131h148.3L376 447z" fill="#F1662A"/>
-              <path d="M142 176.3h114v45.4h-64.2l4.2 46.5H256v45.4H142zM156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26z" fill="#EBEBEB"/>
-              <path d="M369.6 176.3H256v45.4h109.6zM361.3 268.2H256v45.5h63.6l-6 67.2-57.6 15.7v47.4l93-25.8z" fill="#fff"/>
-            </svg>
-            <span class="tech-name" style="color:#E34F26;">HTML5</span>
-          </div>
-
-          <!-- 8. CSS3 (official blue shield logo) -->
-          <div class="tech-item">
-            <svg width="22" height="28" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-              <path d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512z" fill="#1572B6"/>
-              <path d="M256 480.5l120.1-33.2 25.9-290.3H256z" fill="#33A9DC"/>
-              <path d="M256 268.2h-60.6l-4.2-46.5H256v-45.4H142.1l1.1 11.8 11.4 128.1H256zM256 384.5l-.3.1-50.5-13.6-3.2-36.3h-45.6l6.4 71.4 93 25.8.2-.1z" fill="#EBEBEB"/>
-              <path d="M255.9 268.2v45.5h56.1l-5.3 59-50.8 13.7v47.4l93.1-25.8 6.9-77.2 7.3-62.6zM255.9 176.3v45.4h106l3.5-45.4z" fill="#fff"/>
-            </svg>
-            <span class="tech-name" style="color:#1572B6;">CSS3</span>
-          </div>
-
-          <!-- 9. JavaScript (official yellow square logo) -->
-          <div class="tech-item">
-            <svg width="26" height="26" viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg">
-              <rect width="630" height="630" fill="#f7df1e" rx="30"/>
-              <path d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 92.9 0 53.2-41.74 82.5-97.9 82.5-54.9 0-90.4-26.2-107.6-60.6zm-209.4 5.13c9.3 16.5 17.76 30.45 37.94 30.45 19.4 0 31.66-7.61 31.66-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z" fill="#323330"/>
-            </svg>
-            <span class="tech-name" style="color:#F0DB4F;">JavaScript</span>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
-       SECTION 9: INDUSTRIES WE BUILD FOR
-       ------------------------------------------- -->
-  <section class="industries-section">
-    <div class="container">
-      
-      <!-- Lined Header -->
-      <div class="section-lined-header">
-        <span class="header-title">Industries We Build For</span>
-      </div>
-
-      <!-- 7 Industries Card with Vertical Dividers -->
-      <div class="industries-card">
-        <div class="industries-grid">
-          
-          <!-- 1. Healthcare & Wellness -->
-          <div class="industry-col">
-            <div class="industry-label">Healthcare<br>& Wellness</div>
-          </div>
-
-          <!-- 2. Jewellery & Fashion -->
-          <div class="industry-col">
-            <div class="industry-label">Jewellery<br>& Fashion</div>
-          </div>
-
-          <!-- 3. Ayurveda & Lifestyle -->
-          <div class="industry-col">
-            <div class="industry-label">Ayurveda<br>& Lifestyle</div>
-          </div>
-
-          <!-- 4. Education & Consulting -->
-          <div class="industry-col">
-            <div class="industry-label">Education<br>& Consulting</div>
-          </div>
-
-          <!-- 5. Hospitality & Travel -->
-          <div class="industry-col">
-            <div class="industry-label">Hospitality<br>& Travel</div>
-          </div>
-
-          <!-- 6. Retail & E-commerce -->
-          <div class="industry-col">
-            <div class="industry-label">Retail &<br>E-commerce</div>
-          </div>
-
-          <!-- 7. Corporate & Manufacturing -->
-          <div class="industry-col">
-            <div class="industry-label">Corporate &<br>Manufacturing</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
        SECTION 10: TRUSTED BY BUSINESSES ACROSS INDUSTRIES
        ------------------------------------------- -->
   <section class="trusted-section" id="expertise">
@@ -5640,7 +5420,7 @@
       <!-- Section Heading & Introduction -->
       <div class="trusted-header-wrap">
         <div class="section-lined-header" style="margin-bottom: 12px;">
-          <span class="header-title">Our Partners</span>
+          <span class="header-title">Our Customers</span>
         </div>
         <p class="trusted-sub-text">We've partnered with businesses across diverse industries, delivering impactful digital experiences and solutions.</p>
       </div>
@@ -5682,120 +5462,6 @@
             <!-- Dynamically populated by JavaScript -->
           </div>
 
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
-       SECTION 7: OUR WEBSITE DEVELOPMENT PROCESS
-       ------------------------------------------- -->
-  <section class="process-section" id="process">
-    <div class="container">
-      
-      <!-- Lined Header -->
-      <div class="section-lined-header">
-        <span class="header-title">Our Website<br class="mobile-only-br"> Development Process</span>
-      </div>
-
-      <!-- Process 6 Steps Row -->
-      <div class="process-row">
-        
-        <!-- Step 01: Discovery & Strategy -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/01-discovery.webp" alt="Discovery &amp; Strategy" loading="lazy">
-          </div>
-          <div class="process-number">01</div>
-          <div class="process-name">Discovery &<br>Strategy</div>
-        </div>
-
-        <!-- Arrow Separator -->
-        <div class="process-arrow-sep">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-
-        <!-- Step 02: Planning & Wireframing -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/02-planning.webp" alt="Planning &amp; Wireframing" loading="lazy">
-          </div>
-          <div class="process-number">02</div>
-          <div class="process-name">Planning &<br>Wireframing</div>
-        </div>
-
-        <!-- Arrow Separator -->
-        <div class="process-arrow-sep">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-
-        <!-- Step 03: UI/UX Design -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/03-design.webp" alt="UI/UX Design" loading="lazy">
-          </div>
-          <div class="process-number">03</div>
-          <div class="process-name">UI/UX<br>Design</div>
-        </div>
-
-        <!-- Arrow Separator -->
-        <div class="process-arrow-sep">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-
-        <!-- Step 04: Development -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/04-development.webp" alt="Development" loading="lazy">
-          </div>
-          <div class="process-number">04</div>
-          <div class="process-name">Development</div>
-        </div>
-
-        <!-- Arrow Separator -->
-        <div class="process-arrow-sep">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-
-        <!-- Step 05: Testing & Optimisation -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/05-testing.webp" alt="Testing &amp; Optimisation" loading="lazy">
-          </div>
-          <div class="process-number">05</div>
-          <div class="process-name">Testing &<br>Optimisation</div>
-        </div>
-
-        <!-- Arrow Separator -->
-        <div class="process-arrow-sep">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </div>
-
-        <!-- Step 06: Launch & Support -->
-        <div class="process-step-item">
-          <div class="process-circle">
-            <img src="./assets/process/06-launch.webp" alt="Launch &amp; Support" loading="lazy">
-          </div>
-          <div class="process-number">06</div>
-          <div class="process-name">Launch &<br>Support</div>
         </div>
 
       </div>
@@ -6044,157 +5710,6 @@
 
 
   <!-- -------------------------------------------
-       SECTION 3: OUR IMPACT IN NUMBERS
-       ------------------------------------------- -->
-  <section class="impact-section reveal-on-scroll">
-    <div class="container">
-      <div class="impact-card">
-        
-        <div class="impact-title">Our Impact in Numbers</div>
-
-        <div class="impact-grid">
-          
-          <!-- Stat 1: 100+ Websites Delivered -->
-          <div class="impact-col">
-            <div class="impact-number" data-counter data-target="40" data-suffix="+">0+</div>
-            <div class="impact-label">Websites Delivered</div>
-          </div>
-
-          <!-- Stat 2: 5+ Platforms Expertise -->
-          <div class="impact-col">
-            <div class="impact-number" data-counter data-target="5" data-suffix="+">0+</div>
-            <div class="impact-label">Platforms Expertise</div>
-          </div>
-
-          <!-- Stat 3: 15+ Industries Served -->
-          <div class="impact-col">
-            <div class="impact-number" data-counter data-target="15" data-suffix="+">0+</div>
-            <div class="impact-label">Industries Served</div>
-          </div>
-
-          <!-- Stat 4: 95%+ Client Satisfaction -->
-          <div class="impact-col">
-            <div class="impact-number" data-counter data-target="95" data-suffix="%+">0%+</div>
-            <div class="impact-label">Client Satisfaction</div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
-       SECTION 6: WHY CHOOSE WHITE INK?
-       ------------------------------------------- -->
-  <section class="why-choose-section" id="about">
-    <div class="container">
-      
-      <!-- Lined Header -->
-      <div class="section-lined-header">
-        <span class="header-title">Why Choose White Ink?</span>
-      </div>
-
-      <!-- 8 Value Propositions Grid -->
-      <div class="why-choose-grid">
-        
-        <!-- 1. Strategy-First Approach -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="12" cy="12" r="6"></circle>
-              <circle cx="12" cy="12" r="2"></circle>
-            </svg>
-          </div>
-          <div class="why-title">Strategy-First Approach</div>
-        </div>
-
-        <!-- 2. Mobile-First Development -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-          </div>
-          <div class="why-title">Mobile-First Development</div>
-        </div>
-
-        <!-- 3. Speed & Performance -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
-              <path d="M12 6v6l4 2"></path>
-            </svg>
-          </div>
-          <div class="why-title">Speed & Performance</div>
-        </div>
-
-        <!-- 4. Integrations & Automation -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-            </svg>
-          </div>
-          <div class="why-title">Integrations & Automation</div>
-        </div>
-
-        <!-- 5. Conversion-Focused Design -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              <polyline points="17 6 23 6 23 12"></polyline>
-            </svg>
-          </div>
-          <div class="why-title">Conversion-Focused Design</div>
-        </div>
-
-        <!-- 6. SEO-Friendly Architecture -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          <div class="why-title">SEO-Friendly Architecture</div>
-        </div>
-
-        <!-- 7. Marketing-Ready Setup -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-            </svg>
-          </div>
-          <div class="why-title">Marketing-Ready Setup</div>
-        </div>
-
-        <!-- 8. Ongoing Technical Support -->
-        <div class="why-card">
-          <div class="why-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-            </svg>
-          </div>
-          <div class="why-title">Ongoing Technical Support</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- -------------------------------------------
        SECTION 2: RECOGNISED EXPERTISE / CERTIFIED EXCELLENCE
        ------------------------------------------- -->
   <section class="certifications-section">
@@ -6398,6 +5913,562 @@
             <path d="M15 30C18 28 21 31 19 34C17 36 14 33 15 30Z" fill="#c29438"/>
             <path d="M15 39C18 38 20 42 18 44C16 46 14 42 15 39Z" fill="#c29438"/>
           </svg>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 3: OUR IMPACT IN NUMBERS
+       ------------------------------------------- -->
+  <section class="impact-section reveal-on-scroll">
+    <div class="container">
+      <div class="impact-card">
+        
+        <div class="impact-title">Our Impact in Numbers</div>
+
+        <div class="impact-grid">
+          
+          <!-- Stat 1: 100+ Websites Delivered -->
+          <div class="impact-col">
+            <div class="impact-number" data-counter data-target="40" data-suffix="+">0+</div>
+            <div class="impact-label">Websites Delivered</div>
+          </div>
+
+          <!-- Stat 2: 4+ Platforms Expertise -->
+          <div class="impact-col">
+            <div class="impact-number" data-counter data-target="4" data-suffix="+">0+</div>
+            <div class="impact-label">Platforms Expertise</div>
+          </div>
+
+          <!-- Stat 3: 15+ Industries Served -->
+          <div class="impact-col">
+            <div class="impact-number" data-counter data-target="15" data-suffix="+">0+</div>
+            <div class="impact-label">Industries Served</div>
+          </div>
+
+          <!-- Stat 4: 95%+ Client Satisfaction -->
+          <div class="impact-col">
+            <div class="impact-number" data-counter data-target="95" data-suffix="%+">0%+</div>
+            <div class="impact-label">Client Satisfaction</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 9: INDUSTRIES WE BUILD FOR
+       ------------------------------------------- -->
+  <section class="industries-section">
+    <div class="container">
+      
+      <!-- Lined Header -->
+      <div class="section-lined-header">
+        <span class="header-title">Industries We Build For</span>
+      </div>
+
+      <!-- 7 Industries Card with Vertical Dividers -->
+      <div class="industries-card">
+        <div class="industries-grid">
+          
+          <!-- 1. Healthcare & Wellness -->
+          <div class="industry-col">
+            <div class="industry-label">Healthcare<br>& Wellness</div>
+          </div>
+
+          <!-- 2. Jewellery & Fashion -->
+          <div class="industry-col">
+            <div class="industry-label">Jewellery<br>& Fashion</div>
+          </div>
+
+          <!-- 3. Ayurveda & Lifestyle -->
+          <div class="industry-col">
+            <div class="industry-label">Ayurveda<br>& Lifestyle</div>
+          </div>
+
+          <!-- 4. Education & Consulting -->
+          <div class="industry-col">
+            <div class="industry-label">Education<br>& Consulting</div>
+          </div>
+
+          <!-- 5. Hospitality & Travel -->
+          <div class="industry-col">
+            <div class="industry-label">Hospitality<br>& Travel</div>
+          </div>
+
+          <!-- 6. Retail & E-commerce -->
+          <div class="industry-col">
+            <div class="industry-label">Retail &<br>E-commerce</div>
+          </div>
+
+          <!-- 7. Corporate & Manufacturing -->
+          <div class="industry-col">
+            <div class="industry-label">Corporate &<br>Manufacturing</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 11: THE PEOPLE BEHIND WHITE INK
+       ------------------------------------------- -->
+  <section class="people-section" id="team">
+    <div class="container">
+      
+      <!-- Lined Header -->
+      <div class="section-lined-header">
+        <span class="header-title">The People Behind White Ink</span>
+      </div>
+
+      <!-- Team Members Grid -->
+      <div class="people-grid">
+        
+        <!-- Member 1: Forum Shah -->
+        <div class="people-card">
+          <div class="people-photo-box">
+            <img class="photo-forum" src="./assets/forum-shah.webp" alt="Forum Shah - Founder">
+          </div>
+          <div class="people-name">Forum Shah</div>
+          <div class="people-role">Founder</div>
+          <div class="people-dept">Brand & Creative Strategy</div>
+        </div>
+
+        <!-- Member 2: Sarthak Shah -->
+        <div class="people-card">
+          <div class="people-photo-box">
+            <img class="photo-sarthak" src="./assets/sarthak-shah.webp" alt="Sarthak Shah - Co-founder">
+          </div>
+          <div class="people-name">Sarthak Shah</div>
+          <div class="people-role">Co-founder</div>
+          <div class="people-dept">Marketing & Growth</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 4: OUR SERVICES
+       ------------------------------------------- -->
+  <section class="services-section" id="services">
+    <div class="container">
+      
+      <!-- Lined Header & Title -->
+      <div class="services-heading-wrap">
+        <div class="section-lined-header" style="margin-bottom: 12px;">
+          <span class="header-title">Our Services</span>
+        </div>
+      </div>
+
+      <!-- 6 Services Cards Grid -->
+      <div class="services-grid">
+
+        <!-- 1. Business Website -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/business-website.webp" alt="Business Website" loading="lazy">
+          </div>
+          <div class="service-title">Business<br>Website</div>
+        </div>
+
+        <!-- 2. E-commerce Website -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/ecommerce-website.webp" alt="E-commerce Website" loading="lazy">
+          </div>
+          <div class="service-title">E-commerce<br>Website</div>
+        </div>
+
+        <!-- 3. Landing Page -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/landing-page.webp" alt="Landing Page" loading="lazy">
+          </div>
+          <div class="service-title">Landing<br>Page</div>
+        </div>
+
+        <!-- 6. UI/UX Design -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/ui-ux-design.webp" alt="UI/UX Design" loading="lazy">
+          </div>
+          <div class="service-title">UI/UX<br>Design</div>
+        </div>
+
+        <!-- 7. Website Redesign -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/website-redesign.webp" alt="Website Redesign" loading="lazy">
+          </div>
+          <div class="service-title">Website<br>Redesign</div>
+        </div>
+
+        <!-- 8. SEO & Ranking -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <img src="./assets/services/seo-ranking.webp" alt="SEO &amp; Ranking" loading="lazy">
+          </div>
+          <div class="service-title">SEO &amp;<br>Ranking</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 8: BUILT ON THE RIGHT TECHNOLOGY
+       ------------------------------------------- -->
+  <section class="tech-section">
+    <div class="container">
+      
+      <!-- Lined Header -->
+      <div class="section-lined-header">
+        <span class="header-title">Built on the Right Technology</span>
+      </div>
+
+      <!-- Core Platforms Bar Card -->
+      <div class="tech-card-wrapper">
+        <div class="tech-grid">
+
+          <!-- 1. Shopify (official bag icon) -->
+          <div class="tech-item">
+            <svg width="28" height="32" viewBox="0 0 109 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M95.5 23.5c-.1-.7-.7-1.1-1.2-1.1-.5 0-9.3.2-9.3.2s-6.2-6.1-6.8-6.7c-.6-.6-1.9-.4-2.4-.3-.1 0-1.3.4-3.3 1C70.3 11.5 67 7 61.2 7c-.2 0-.3 0-.5.1C59.4 5.4 57.7 4.5 56.2 4.5c-11.5.1-17 14.4-18.7 21.7-4.5 1.4-7.7 2.4-8.1 2.5-2.5.8-2.6.8-2.9 3.2C26.2 33.9 16 113.5 16 113.5l67.5 11.5 25.5-6.5S95.6 24.2 95.5 23.5zM72.5 17.8c-1.6.5-3.4 1-5.3 1.6v-1.2c0-3.6-.5-6.5-1.3-8.8 3.2.4 5.3 4.1 6.6 8.4zM56.5 9.8c.9 2.2 1.5 5.4 1.5 9.7v.6c-3.6 1.1-7.5 2.3-11.4 3.5 2.2-8.4 6.3-12.5 9.9-13.8zM55.8 5.5c.6 0 1.2.2 1.8.6-4.5 2.1-9.3 7.5-11.3 18.2l-8.5 2.6C39.7 18.5 44.9 5.5 55.8 5.5z" fill="#95BF47"/>
+              <path d="M94.3 22.4c-.5 0-9.3.2-9.3.2s-6.2-6.1-6.8-6.7c-.2-.2-.5-.3-.8-.4l-4.2 85.8 25.5-6.5S95.6 24.2 95.5 23.5c-.1-.7-.7-1.1-1.2-1.1z" fill="#5E8E3E"/>
+              <path d="M61.2 42.5l-3.1 9.3s-2.8-1.5-6.2-1.5c-5 0-5.3 3.1-5.3 3.9 0 4.3 11.2 5.9 11.2 15.9 0 7.9-5 13-11.7 13-8.1 0-12.2-5-12.2-5l2.2-7.2s4.2 3.6 7.8 3.6c2.3 0 3.3-1.8 3.3-3.2 0-5.6-9.2-5.8-9.2-15 0-7.7 5.5-15.2 16.7-15.2 4.3 0 6.5 1.4 6.5 1.4z" fill="white"/>
+            </svg>
+            <span class="tech-name" style="font-weight:800;text-transform:lowercase;">shopify</span>
+          </div>
+
+          <!-- 2. WordPress (official W circle logo) -->
+          <div class="tech-item">
+            <svg width="28" height="28" viewBox="0 0 122.52 122.52" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#21759b">
+                <path d="M8.708 61.26c0 20.802 12.089 38.779 29.619 47.298L13.258 39.872a52.354 52.354 0 0 0-4.55 21.388zM96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501L48.2 93.547l11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989zM61.262 65.491l-15.764 45.793a52.33 52.33 0 0 0 14.486 2.046 52.4 52.4 0 0 0 16.589-2.696 4.578 4.578 0 0 1-.374-.716L61.262 65.491zM107.376 36.046a41.07 41.07 0 0 1 .36 5.453c0 5.328-.993 11.318-3.996 18.81l-16.053 46.422c15.624-9.111 26.133-26.038 26.133-45.471a52.267 52.267 0 0 0-6.444-25.214z"/>
+                <path d="M61.262 0C27.483 0 0 27.481 0 61.26c0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263C122.527 27.481 95.04 0 61.262 0zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/>
+              </g>
+            </svg>
+            <span class="tech-name">WordPress</span>
+          </div>
+
+          <!-- 3. Wix Studio -->
+          <div class="tech-item">
+            <img src="./assets/logo/wix-studio.webp" alt="Wix Studio Logo" class="tech-wix-logo" style="max-height: 42px; max-width: 52px; width: auto; height: auto; object-fit: contain; display: block; transform: scale(1.25);">
+            <span class="tech-name">Wix Studio</span>
+          </div>
+
+          <!-- 4. Webflow (2023 rebrand — bold blue W mark) -->
+          <div class="tech-item">
+            <svg width="38" height="24" viewBox="0 0 1080 674" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#146EF5" fill-rule="evenodd" d="M1080 0 735.386 673.684H411.695l144.221-279.203h-6.471C430.464 548.934 252.942 650.61-.0005 673.684v-275.34s161.8135-9.557 256.9385-109.568H-.0005V.0053H288.771V237.515l6.481-.026L413.254.0053h218.39V236.009l6.482-.01L760.555 0H1080Z" clip-rule="evenodd"/>
+            </svg>
+            <span class="tech-name">Webflow</span>
+          </div>
+
+          <!-- 5. React (official blue atom logo) -->
+          <div class="tech-item">
+            <svg width="30" height="28" viewBox="0 0 841.9 595.3" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#61DAFB">
+                <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16.1-13 24.1-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/>
+                <circle cx="420.9" cy="296.5" r="45.7"/>
+              </g>
+            </svg>
+            <span class="tech-name" style="color:#61DAFB;">React</span>
+          </div>
+
+          <!-- 6. Next.js (black N logo) -->
+          <div class="tech-item">
+            <svg width="28" height="28" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask-nextjs" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
+                <circle cx="90" cy="90" r="90" fill="black"/>
+              </mask>
+              <g mask="url(#mask-nextjs)">
+                <circle cx="90" cy="90" r="90" fill="black"/>
+                <path d="M149.508 157.52L69.142 54H54V125.97H66.1097V69.3348L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z" fill="url(#grad-nextjs)"/>
+                <rect x="115" y="54" width="12" height="72" fill="url(#grad2-nextjs)"/>
+              </g>
+              <defs>
+                <linearGradient id="grad-nextjs" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="white"/>
+                  <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="grad2-nextjs" x1="115" y1="54" x2="115.221" y2="106.5" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="white"/>
+                  <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="tech-name">Next.js</span>
+          </div>
+
+          <!-- 7. HTML5 (official orange shield logo) -->
+          <div class="tech-item">
+            <svg width="24" height="28" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M108.4 0h23v22.8h21.2V0h23v69h-23V46h-21.2v23h-23V0zM206 23h-20.3V0h63.7v23H229v46h-23V23zM256.5 0h24.1l14.8 24.3L310.2 0h24.1v69h-23V34.8l-15.9 24.6h-.4l-15.9-24.6V69h-22.6V0zM348.7 0h23v46.2h32.6V69h-55.6V0z" fill="#E34F26"/>
+              <path d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512z" fill="#E44D26"/>
+              <path d="M256 480.5V131h148.3L376 447z" fill="#F1662A"/>
+              <path d="M142 176.3h114v45.4h-64.2l4.2 46.5H256v45.4H142zM156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26z" fill="#EBEBEB"/>
+              <path d="M369.6 176.3H256v45.4h109.6zM361.3 268.2H256v45.5h63.6l-6 67.2-57.6 15.7v47.4l93-25.8z" fill="#fff"/>
+            </svg>
+            <span class="tech-name" style="color:#E34F26;">HTML5</span>
+          </div>
+
+          <!-- 8. CSS3 (official blue shield logo) -->
+          <div class="tech-item">
+            <svg width="22" height="28" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512z" fill="#1572B6"/>
+              <path d="M256 480.5l120.1-33.2 25.9-290.3H256z" fill="#33A9DC"/>
+              <path d="M256 268.2h-60.6l-4.2-46.5H256v-45.4H142.1l1.1 11.8 11.4 128.1H256zM256 384.5l-.3.1-50.5-13.6-3.2-36.3h-45.6l6.4 71.4 93 25.8.2-.1z" fill="#EBEBEB"/>
+              <path d="M255.9 268.2v45.5h56.1l-5.3 59-50.8 13.7v47.4l93.1-25.8 6.9-77.2 7.3-62.6zM255.9 176.3v45.4h106l3.5-45.4z" fill="#fff"/>
+            </svg>
+            <span class="tech-name" style="color:#1572B6;">CSS3</span>
+          </div>
+
+          <!-- 9. JavaScript (official yellow square logo) -->
+          <div class="tech-item">
+            <svg width="26" height="26" viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg">
+              <rect width="630" height="630" fill="#f7df1e" rx="30"/>
+              <path d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 92.9 0 53.2-41.74 82.5-97.9 82.5-54.9 0-90.4-26.2-107.6-60.6zm-209.4 5.13c9.3 16.5 17.76 30.45 37.94 30.45 19.4 0 31.66-7.61 31.66-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z" fill="#323330"/>
+            </svg>
+            <span class="tech-name" style="color:#F0DB4F;">JavaScript</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 7: OUR WEBSITE DEVELOPMENT PROCESS
+       ------------------------------------------- -->
+  <section class="process-section" id="process">
+    <div class="container">
+      
+      <!-- Lined Header -->
+      <div class="section-lined-header">
+        <span class="header-title">Our Website<br class="mobile-only-br"> Development Process</span>
+      </div>
+
+      <!-- Process 6 Steps Row -->
+      <div class="process-row">
+        
+        <!-- Step 01: Discovery & Strategy -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/01-discovery.webp" alt="Discovery &amp; Strategy" loading="lazy">
+          </div>
+          <div class="process-number">01</div>
+          <div class="process-name">Discovery &<br>Strategy</div>
+        </div>
+
+        <!-- Arrow Separator -->
+        <div class="process-arrow-sep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Step 02: Planning & Wireframing -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/02-planning.webp" alt="Planning &amp; Wireframing" loading="lazy">
+          </div>
+          <div class="process-number">02</div>
+          <div class="process-name">Planning &<br>Wireframing</div>
+        </div>
+
+        <!-- Arrow Separator -->
+        <div class="process-arrow-sep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Step 03: UI/UX Design -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/03-design.webp" alt="UI/UX Design" loading="lazy">
+          </div>
+          <div class="process-number">03</div>
+          <div class="process-name">UI/UX<br>Design</div>
+        </div>
+
+        <!-- Arrow Separator -->
+        <div class="process-arrow-sep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Step 04: Development -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/04-development.webp" alt="Development" loading="lazy">
+          </div>
+          <div class="process-number">04</div>
+          <div class="process-name">Development</div>
+        </div>
+
+        <!-- Arrow Separator -->
+        <div class="process-arrow-sep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Step 05: Testing & Optimisation -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/05-testing.webp" alt="Testing &amp; Optimisation" loading="lazy">
+          </div>
+          <div class="process-number">05</div>
+          <div class="process-name">Testing &<br>Optimisation</div>
+        </div>
+
+        <!-- Arrow Separator -->
+        <div class="process-arrow-sep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Step 06: Launch & Support -->
+        <div class="process-step-item">
+          <div class="process-circle">
+            <img src="./assets/process/06-launch.webp" alt="Launch &amp; Support" loading="lazy">
+          </div>
+          <div class="process-number">06</div>
+          <div class="process-name">Launch &<br>Support</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- -------------------------------------------
+       SECTION 6: WHY CHOOSE WHITE INK?
+       ------------------------------------------- -->
+  <section class="why-choose-section" id="about">
+    <div class="container">
+      
+      <!-- Lined Header -->
+      <div class="section-lined-header">
+        <span class="header-title">Why Choose White Ink?</span>
+      </div>
+
+      <!-- 8 Value Propositions Grid -->
+      <div class="why-choose-grid">
+        
+        <!-- 1. Strategy-First Approach -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <div class="why-title">Strategy-First Approach</div>
+        </div>
+
+        <!-- 2. Mobile-First Development -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <div class="why-title">Mobile-First Development</div>
+        </div>
+
+        <!-- 3. Speed & Performance -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 0 0-7.07 17.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93A10 10 0 0 0 12 2z"></path>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+          </div>
+          <div class="why-title">Speed & Performance</div>
+        </div>
+
+        <!-- 4. Integrations & Automation -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </div>
+          <div class="why-title">Integrations & Automation</div>
+        </div>
+
+        <!-- 5. Conversion-Focused Design -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <div class="why-title">Conversion-Focused Design</div>
+        </div>
+
+        <!-- 6. SEO-Friendly Architecture -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <div class="why-title">SEO-Friendly Architecture</div>
+        </div>
+
+        <!-- 7. Marketing-Ready Setup -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <div class="why-title">Marketing-Ready Setup</div>
+        </div>
+
+        <!-- 8. Ongoing Technical Support -->
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <div class="why-title">Ongoing Technical Support</div>
         </div>
 
       </div>
@@ -7026,47 +7097,6 @@
 
     </div>
   </section>
-  ======================================================== -->
-
-
-  <!-- -------------------------------------------
-       SECTION 11: THE PEOPLE BEHIND WHITE INK
-       ------------------------------------------- -->
-  <section class="people-section" id="team">
-    <div class="container">
-      
-      <!-- Lined Header -->
-      <div class="section-lined-header">
-        <span class="header-title">The People Behind White Ink</span>
-      </div>
-
-      <!-- Team Members Grid -->
-      <div class="people-grid">
-        
-        <!-- Member 1: Forum Shah -->
-        <div class="people-card">
-          <div class="people-photo-box">
-            <img class="photo-forum" src="./assets/forum-shah.webp" alt="Forum Shah - Founder">
-          </div>
-          <div class="people-name">Forum Shah</div>
-          <div class="people-role">Founder</div>
-          <div class="people-dept">Brand & Creative Strategy</div>
-        </div>
-
-        <!-- Member 2: Sarthak Shah -->
-        <div class="people-card">
-          <div class="people-photo-box">
-            <img class="photo-sarthak" src="./assets/sarthak-shah.webp" alt="Sarthak Shah - Co-founder">
-          </div>
-          <div class="people-name">Sarthak Shah</div>
-          <div class="people-role">Co-founder</div>
-          <div class="people-dept">Marketing & Growth</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
 
 
   <!-- -------------------------------------------
@@ -7155,123 +7185,152 @@
   <footer class="site-footer" id="contact">
     <div class="container">
       
-      <!-- Top 5 Columns Row -->
+      <!-- 3-Column Row -->
       <div class="footer-main-row">
         
-        <!-- Column 1: Brand -->
+        <!-- Column 1: Brand Logo -->
         <div class="footer-brand-col">
           <a href="#hero" class="footer-logo" aria-label="White Ink Design Studio">
-            <img src="./assets/white-ink-logo.webp" alt="White Ink - Inking your brand" class="footer-logo-img">
+            <img src="./assets/white-ink-logo.webp" alt="White Ink Design Studio" class="footer-logo-img">
           </a>
         </div>
 
-        <!-- Column 2: Capabilities -->
-        <div class="footer-links-col">
-          <h4 class="footer-col-title">Capabilities</h4>
-          <ul class="footer-links">
-            <li><a href="#services">E-Commerce &amp; Shopify</a></li>
-            <li><a href="#services">Corporate Websites</a></li>
-            <li><a href="#services">Landing Pages &amp; Funnels</a></li>
-            <li><a href="#services">Website Redesign</a></li>
-            <li><a href="#services">Speed &amp; SEO Optimisation</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Industries -->
-        <div class="footer-links-col">
-          <h4 class="footer-col-title">Industries</h4>
-          <ul class="footer-links">
-            <li><a href="#expertise" data-industry-tab="healthcare">Healthcare &amp; Clinics</a></li>
-            <li><a href="#expertise" data-industry-tab="d2c">D2C &amp; E-Commerce</a></li>
-            <li><a href="#expertise" data-industry-tab="jewellery">Jewellery &amp; Luxury</a></li>
-            <li><a href="#expertise" data-industry-tab="education">Education &amp; Corporate</a></li>
-            <li><a href="#expertise" data-industry-tab="industrial">Industrial &amp; Manufacturing</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Company & Contact Details -->
-        <div class="footer-links-col footer-company-col">
-          <h4 class="footer-col-title">Company</h4>
-          <ul class="footer-links">
-            <li><a href="#about">About White Ink</a></li>
-            <li><a href="#work">Our Portfolio</a></li>
-            <li><a href="#team">Our Team</a></li>
-            <li><a href="#process">Development Process</a></li>
-            <li><a href="#reviews">Client Reviews</a></li>
-            <li><a href="#faq">FAQs</a></li>
-          </ul>
-
-          <h4 class="footer-col-title" style="margin-top: 22px; margin-bottom: 12px;">Contact Us</h4>
+        <!-- Column 2: Contact Us -->
+        <div class="footer-contact-col">
+          <h4 class="footer-serif-title">Contact Us</h4>
           <div class="footer-contact-info">
-            <a href="tel:+919876543210" class="footer-contact-item" title="Call Us">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#deb877" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span>+91 98765 43210</span>
+            <a href="tel:+447393071302" class="footer-contact-item" title="Call Us">
+              <span class="footer-contact-icon-circle">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <span>+44 7393071302</span>
             </a>
             <a href="mailto:contact@whiteink.design" class="footer-contact-item" title="Email Us">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#deb877" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
+              <span class="footer-contact-icon-circle">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
               <span>contact@whiteink.design</span>
             </a>
-            <div class="footer-contact-item" style="color: #9ca3af; font-size: 12px; margin-top: 2px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#deb877" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon-circle">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
               <span>Ahmedabad, Gujarat, India</span>
             </div>
           </div>
         </div>
 
-        <!-- Column 5: Stay in the loop -->
-        <div class="footer-newsletter-col">
-          <h4 class="footer-col-title">Stay in the loop</h4>
-          
-          <!-- Newsletter Input Pill with Gold Arrow Button -->
-          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to our newsletter!'); this.reset();">
-            <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Enter your email">
-            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
+        <!-- Column 3: Let's Build Your Website -->
+        <div class="footer-quote-col">
+          <h4 class="footer-serif-title">Let’s Build Your Website.</h4>
+          <form id="footerQuoteForm" class="footer-quote-grid">
+            <div class="footer-field-wrap">
+              <span class="footer-field-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <input type="text" id="footerQuoteName" class="footer-input" placeholder="Your Name" required>
+            </div>
+
+            <div class="footer-field-wrap">
+              <span class="footer-field-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </span>
+              <input type="text" id="footerQuoteBrand" class="footer-input" placeholder="Business / Brand Name" required>
+            </div>
+
+            <div class="footer-field-wrap">
+              <span class="footer-field-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <input type="tel" id="footerQuotePhone" class="footer-input" placeholder="Phone Number" required>
+            </div>
+
+            <div class="footer-field-wrap">
+              <span class="footer-field-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <input type="email" id="footerQuoteEmail" class="footer-input" placeholder="Email Address" required>
+            </div>
+
+            <div class="footer-select-wrap">
+              <select id="footerQuoteWebsiteType" class="footer-select" required>
+                <option value="" disabled selected>Type of Website</option>
+                <option value="business">Business Website</option>
+                <option value="ecommerce">E-commerce Store</option>
+                <option value="landing">Landing Page</option>
+                <option value="redesign">Website Redesign</option>
+                <option value="custom">Custom Web Portal</option>
+              </select>
+              <span class="footer-select-arrow">
+                <svg width="11" height="6" viewBox="0 0 11 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 1 5.5 5 10 1"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <div class="footer-select-wrap">
+              <select id="footerQuotePlatform" class="footer-select" required>
+                <option value="" disabled selected>Preferred Platform</option>
+                <option value="shopify">Shopify</option>
+                <option value="wordpress">WordPress</option>
+                <option value="webflow">Webflow</option>
+                <option value="wix">Wix</option>
+                <option value="suggest">Need Recommendation</option>
+              </select>
+              <span class="footer-select-arrow">
+                <svg width="11" height="6" viewBox="0 0 11 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 1 5.5 5 10 1"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <div class="footer-select-wrap">
+              <select id="footerQuoteBudget" class="footer-select" required>
+                <option value="" disabled selected>Estimated Budget</option>
+                <option value="500-1500">$500 – $1,500</option>
+                <option value="1500-3000">$1,500 – $3,000</option>
+                <option value="3000-5000">$3,000 – $5,000</option>
+                <option value="5000+">$5,000+</option>
+              </select>
+              <span class="footer-select-arrow">
+                <svg width="11" height="6" viewBox="0 0 11 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 1 5.5 5 10 1"></polyline>
+                </svg>
+              </span>
+            </div>
+
+            <button type="submit" class="footer-whatsapp-btn">
+              <span>Get a Quote via WhatsApp</span>
+              <span aria-hidden="true">→</span>
             </button>
           </form>
-
-          <!-- Social Icons (LinkedIn, Instagram) -->
-          <div class="footer-social-row">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/company/the-white-ink-design-studio/people/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-              </svg>
-            </a>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/whiteinkdesignstudio/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-
         </div>
 
       </div>
 
-      <!-- Bottom Bar: Copyright & Legal -->
+      <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
         <div class="footer-copyright">
           © 2026 White Ink Design Studio. All rights reserved.
-        </div>
-        <div class="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <span>|</span>
-          <a href="#">Terms of Use</a>
         </div>
       </div>
 
@@ -7461,9 +7520,9 @@
     // =========================================================================
     // ⚠️ WHATSAPP PHONE NUMBER SETTING
     // Apne WhatsApp number ko yaha dalein: Country Code ke sath, bina '+' ya space ke
-    // Example (India): 918160511477
+    // Example: 447393071302
     // =========================================================================
-    const WHITEINK_WHATSAPP_NUMBER = "918160511477";
+    const WHITEINK_WHATSAPP_NUMBER = "447393071302";
 
     if (quoteTrigger && quoteBox && quoteClose) {
       // Open form when trigger button is clicked
@@ -7552,6 +7611,56 @@ Could you please share pricing and project details? Thank you!`;
           quoteBox.classList.remove('active');
           quoteTrigger.style.display = 'flex';
         }
+      });
+    }
+
+    const footerQuoteForm = document.getElementById('footerQuoteForm');
+    if (footerQuoteForm) {
+      footerQuoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = (document.getElementById('footerQuoteName')?.value || '').trim();
+        const brand = (document.getElementById('footerQuoteBrand')?.value || '').trim();
+        const phone = (document.getElementById('footerQuotePhone')?.value || '').trim();
+        const email = (document.getElementById('footerQuoteEmail')?.value || '').trim();
+
+        const typeEl = document.getElementById('footerQuoteWebsiteType');
+        const websiteType = typeEl && typeEl.selectedIndex > 0 ? typeEl.options[typeEl.selectedIndex].text : 'General Inquiry';
+
+        const platformEl = document.getElementById('footerQuotePlatform');
+        const platform = platformEl && platformEl.selectedIndex > 0 ? platformEl.options[platformEl.selectedIndex].text : 'Recommendation Needed';
+
+        const budgetEl = document.getElementById('footerQuoteBudget');
+        const budget = budgetEl && budgetEl.selectedIndex > 0 ? budgetEl.options[budgetEl.selectedIndex].text : 'Flexible';
+
+        const message =
+`Hi White Ink Team,
+
+I would like to inquire about building a website. Here are my project details:
+
+- Name: ${name}
+- Business / Brand: ${brand}
+- Phone: ${phone}
+- Email: ${email}
+
+- Website Type: ${websiteType}
+- Preferred Platform: ${platform}
+- Estimated Budget: ${budget}
+
+Could you please share pricing and project details? Thank you!`;
+
+        let cleanPhone = WHITEINK_WHATSAPP_NUMBER.replace(/\D/g, '');
+        if (cleanPhone.length === 10) {
+          cleanPhone = '91' + cleanPhone;
+        }
+
+        const whatsappUrl = `https://api.whatsapp.com/send/?phone=${cleanPhone}&text=${encodeURIComponent(message)}`;
+        const win = window.open(whatsappUrl, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = whatsappUrl;
+        }
+
+        footerQuoteForm.reset();
       });
     }
 
